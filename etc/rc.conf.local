@@ -1,0 +1,6 @@
+pkg_scripts=dnscrypt_proxy dbus_daemon avahi_daemon
+sshd_flags=NO
+unbound_flags=-c /var/unbound/etc/myunbound.conf
+vmd_flags=
+xenodm_flags=
+dbus_enable=YES

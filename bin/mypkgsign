@@ -1,0 +1,7 @@
+#!/bin/sh
+# Create
+#signify -Gns /etc/signify/my-pkg.sec -p /etc/signify/my-pkg.pub
+
+pkg_sign -s signify2 -s /etc/signify/my-pkg.sec -o \
+	/usr/packages/$(arch -s)/signed -S \
+	/usr/packages/$(arch -s)/all

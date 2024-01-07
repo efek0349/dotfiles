@@ -1,0 +1,13 @@
+#!/bin/sh
+
+tmux new-session -d -n 'irc' 'ksh'
+tmux new-window -n 'mail' 'mutt && ksh'
+tmux new-window -n 'pftop' 'doas /usr/local/sbin/pftop && ksh'
+tmux new-window -n 'keychain' '$HOME/bin/keychain-start && ksh'
+tmux new-window -n 'vpn-tor' 'ksh'
+tmux split-window -h 'ksh'
+tmux select-pane -t 0
+tmux new-window -n 'music' 'cmus && ksh'
+tmux new-window -n 'torrent' 'ksh'
+tmux new-window -n 'googler' 'ksh'
+tmux select-window -t 3

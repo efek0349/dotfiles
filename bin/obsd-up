@@ -1,0 +1,103 @@
+#!/bin/sh
+esc=""
+red="${esc}[31m"
+blue="${esc}[34m"
+reset="${esc}[0m"
+
+progname=${0##*/}
+set -A bsds 'bsd' 'bsd.mp' 'bsd.rd'
+set -A sets 'comp' 'game' 'man' 'base'
+set -A xsets 'xbase' 'xfont' 'xserv' 'xshare'
+set -A files 'SHA256.sig' 'BUILDINFO' 'INSTALL.amd64'
+
+setver=$(uname -r | tr -d \.)
+https_server="https://ftp.eu.openbsd.org/pub/OpenBSD/snapshots/`arch -s`"
+
+servers=$(echo "rsync://mirror.internode.on.net/openbsd
+rsync://mirror.aarnet.edu.au/openbsd
+rsync://ftp2.eu.openbsd.org/OpenBSD
+rsync://openbsd.c3sl.ufpr.br/openbsd
+rsync://openbsd.ipacct.com/OpenBSD
+rsync://openbsd.cs.toronto.edu/openbsd
+rsync://mirror.csclub.uwaterloo.ca/OpenBSD
+rsync://mirror.one.com/openbsd
+rsync://ftp.eenet.ee/OpenBSD
+rsync://ftp.fr.openbsd.org/OpenBSD
+rsync://mirrors.ircam.fr/pub/OpenBSD
+rsync://ftp.spline.de/OpenBSD
+rsync://ftp.halifax.rwth-aachen.de/openbsd
+rsync://ftp.hostserver.de/OpenBSD
+rsync://ftp.fau.de/openbsd
+rsync://kartolo.sby.datautama.net.id/OpenBSD
+rsync://ftp.heanet.ie/pub/OpenBSD
+rsync://openbsd.mirror.garr.it/OpenBSD
+rsync://ftp.jaist.ac.jp/pub/OpenBSD
+rsync://ftp.kddilabs.jp/openbsd
+rsync://ftp.riken.jp/openbsd
+rsync://mirror.litnet.lt/OpenBSD
+rsync://ftp.nluug.nl/openbsd
+rsync://ftp.bit.nl/mirror/OpenBSD
+rsync://mirrors.dalenys.com/OpenBSD
+rsync://mirror.fsmg.org.nz/openbsd
+rsync://ftp.piotrkosoft.net/OpenBSD
+rsync://ftp.icm.edu.pl/pub/OpenBSD
+rsync://ftp.rnl.tecnico.ulisboa.pt/pub/OpenBSD
+rsync://mirrors.nav.ro/OpenBSD
+rsync://mirrors.pidginhost.com/OpenBSD
+rsync://ftp.eu.openbsd.org/OpenBSD
+rsync://ftp.yzu.edu.tw/BSD/OpenBSD
+rsync://rsync.mirrorservice.org/ftp.openbsd.org/pub/OpenBSD
+rsync://anorien.csc.warwick.ac.uk/OpenBSD
+rsync://mirror.bytemark.co.uk/OpenBSD
+rsync://mirror.exonetric.net/OpenBSD
+rsync://ftp3.usa.openbsd.org/ftp
+rsync://openbsd.mirror.constant.com/openbsd
+rsync://ftp4.usa.openbsd.org/ftp
+rsync://ftp5.usa.openbsd.org/ftp
+rsync://mirror.esc7.net/openbsd" | sort -R | head -1)
+
+if [ -z "$1" ];then
+	echo "Usage:\v./$progname [-r|-h]" ;exit 123
+fi
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+    -r|rsync)
+       rsync -avz --del --progress -f '. /home/test/code/obsd-sets/filter.txt' \
+		"$servers"/snapshots/`arch -s`/ /home/test/code/obsd-sets/upgrade || \
+		echo "${red}Failed!${reset}"
+
+	cd -- /home/test/code/obsd-sets/upgrade
+	signify -Vep /etc/signify/openbsd-${setver}-base.pub -x  \
+		/home/test/code/obsd-sets/upgrade/SHA256.sig -m - |
+		sha256 -C - $(ls | egrep -iv 'index|SHA256|install|oot|build|floppy|cd') || \
+		echo "${red}Invalid signature found! They are after you!${reset}" ;exit 2;;
+    -h|https)
+        cd -- /home/test/code/obsd-sets/upgrade
+        echo "${blue}Fetching xsets${reset}"
+        for set in "${xsets[@]}"; do
+        ftp -V "${https_server}/${set}${setver}.tgz" || \
+              echo "${red}Failed!${reset}";done
+
+        echo "${blue}Fetching sets${reset}"
+        for set in "${sets[@]}"; do
+        ftp -V "${https_server}/${set}${setver}.tgz" || \
+              echo "${red}Failed!${reset}";done
+
+        echo "${blue}Fetching bsds${reset}"
+        for set in "${bsds[@]}"; do
+        ftp -V "${https_server}/${set}" || \
+              echo "${red}Failed!${reset}";done
+
+        echo "${blue}Fetching files${reset}"
+        for set in "${files[@]}"; do
+        ftp "${https_server}/${set}" || \
+              echo "${red}Failed!${reset}";done
+
+        signify -Vep /etc/signify/openbsd-${setver}-base.pub -x  \
+                /home/test/code/obsd-sets/upgrade/SHA256.sig -m - |
+                sha256 -C - $(ls | egrep -iv 'index|SHA256|install|oot|build|floppy|cd') || \
+	    echo "${red}Invalid signature found! They are after you!${reset}"; exit 1;;
+	*) echo "Usage:\v./$progname [-r|-h]" ; exit 8;;
+    esac
+done

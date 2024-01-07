@@ -1,0 +1,50 @@
+#
+# ~/.offlineimaprc
+#
+[general]
+ui = ttyui
+accounts = disroot
+maxsyncaccounts = 1
+pythonfile = ~/.mutt/nametrans.py
+
+
+[mbnames]
+enabled = yes
+filename = ~/.mutt/mailboxes
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"
+
+
+[Account disroot]
+localrepository = disroot-local
+remoterepository = disroot-remote
+# background: minutes between syncs; num quick-syncs between auto refreshes
+autorefresh = 3
+quick = 6
+
+
+[Repository disroot-local]
+type = Maildir
+localfolders = ~/.mutt/maildir/disroot
+nametrans = nt_local
+
+
+[Repository disroot-remote]
+auth_mechanisms = LOGIN
+type = IMAP
+remotehost = disroot.org
+remoteuser = d5nch3ck@disroot.org
+remotepasseval = disroot2()
+#remoteport = 993
+realdelete = yes
+postsynchook = notmuch new
+maxconnections = 3
+nametrans = nt_remote
+ssl = yes
+sslcacertfile = /etc/ssl/cert.pem
+# background: seconds to hold connection between; requires 'autorefresh' set
+keepalive = 60
+holdconnectionopen = yes
+folderfilter = lambda foldername: foldername in ['INBOX','INBOX.Sent', 'INBOX.Drafts']

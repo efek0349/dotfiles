@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# rsync backup script
+#
+
+DEST=$1
+LIST=/home/$LOGNAME/.config/backup.list
+
+
+if [[ -z $DEST ]]; then
+  echo 'No destination specified'
+  exit 1
+fi
+
+  rsync -av --delete-excluded --exclude-from=$LIST / $DEST;
+  date > $DEST/BACKUP

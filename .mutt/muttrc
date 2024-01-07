@@ -1,0 +1,108 @@
+# ~/.mutt/muttrc
+
+# settings
+  set sidebar_visible   = yes
+#  set sidebar_width     = 26
+  set sidebar_format    = "%B %> %S "
+  set mail_check_stats
+  set status_chars      = " *%A"
+  set status_format     = "----[ Folder: %f ]----[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]----%>--%?p?( %p postponed )?----"
+  set alias_file        = ~/.mutt/aliases
+  set alias_format      = "%4n %t %-20a %r"
+  set askcc
+  set beep_new
+#unset confirmappend
+  set date_format       = "%d/%m/%y at %I:%M%P"
+#  set delete
+  set edit_headers
+  set editor            = "vim +:silent+?^$"
+  set fast_reply
+  set folder            = ~/.mutt/maildir
+  set folder_format     = "%2C %t %N %8s %f"
+  set forward_format    = "Fwd: %s"
+  set forward_quote
+  set include
+#  set index_format      = "[%Z]  %D  %-20.20F %s"
+  set index_format      = "%3C %Z %[!%m/%d] %-17.17F %s"
+  set ispell            = "aspell -e -c"
+  set mail_check        = 0
+  set mailcap_path      = ~/.mutt/mailcap
+unset mark_old
+unset markers
+  set mbox_type         = Maildir
+  set menu_scroll
+  set pager_context     = 5
+  set pager_index_lines = 10
+  set pager_stop
+  set pipe_decode
+#  set print_command     = "enscript -p - | psselect -r | lp"
+  set quote_regexp      = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+  set realname          = "N/A"
+  set reply_regexp      = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+  set reply_to
+  set reverse_alias
+  set reverse_name
+  set sort              = threads
+  set sort_aux          = reverse-last-date-received
+unset sort_re
+  set spoolfile		= "+disroot/inbox"
+  set thorough_search
+  set thread_received
+  set tilde
+  set timeout           = 3
+  set tmpdir            = ~/.mutt/temp
+unset wait_key
+
+# enriched messages
+#auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+# override with account specific folder-hooks
+folder-hook  disroot/* source ~/.mutt/accounts/disroot
+# collapse subscribed mailing threads
+folder-hook disroot/openbsd_* "exec collapse-all"
+
+# headers to show
+ignore *
+unignore from: to: cc: date: subject:
+hdr_order from: to: cc: date: subject:
+
+# mailing lists
+subscribe openbsd-announce openbsd-mics openbsd-ports openbsd-tech
+
+# vim-like key bindings
+bind   index         <Space>   collapse-thread
+bind   index         gg        first-entry
+bind   index         G         last-entry
+bind   pager         /         search
+bind   pager         j         next-line
+bind   pager         k         previous-line
+bind   pager         gg        top
+bind   pager         G         bottom
+bind   pager         <Space>   toggle-quoted
+bind   index,pager   \#        noop
+bind   index,pager   \&        noop
+bind   index,pager   R         group-reply
+
+# Sidebar navigation
+bind index,pager <down> sidebar-next
+bind index,pager <up> sidebar-prev
+bind index,pager <right> sidebar-open
+
+# shortcut macros
+macro index ,d   "<change-folder> =disroot/inbox<enter>"	  	"go to Disroot Inbox"
+macro index ,oa  "<change-folder> =disroot/openbsd_announce<enter>"	"go to OpenBSD Announce"
+macro index ,om  "<change-folder> =disroot/openbsd_mics<enter>" 	"go to OpenBSD Mics"
+macro index ,op  "<change-folder> =disroot/openbsd_ports<enter>"      	"go to OpenBSD Ports"
+macro index ,ot  "<change-folder> =disroot/openbsd_tech<enter>"  	"go to OpenBSD Tech"
+
+# source files
+source $alias_file
+source ~/.mutt/colours
+source ~/.mutt/mailboxes
+source ~/.mutt/accounts/disroot
+# gpg signature
+source ~/.mutt/gpg.rc
+set crypt_autosign=yes
+set ssl_force_tls = yes
+set ssl_starttls  = yes
