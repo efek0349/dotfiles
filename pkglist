@@ -7,6 +7,7 @@ adwaita-icon-theme--
 aom--
 appstream-glib--
 asciinema--
+aspell--
 at-spi2-core--
 autoconf--%2.59
 autoconf--%2.65
@@ -36,7 +37,9 @@ ccache--
 ccrypt--
 cdparanoia--
 cfitsio--
+claws-mail--
 clisp--
+cmake--
 cmus--
 colord--
 conky--
@@ -48,6 +51,7 @@ curl--
 cvsps--
 cyrus-sasl--
 dav1d--
+db--%v4
 dbus--
 dbus-daemon-launch-helper--
 dbus-glib--
@@ -70,8 +74,10 @@ dvi2tty--
 dzen2--
 e2fsprogs--
 ectags--
+enchant2--
 epoll-shim--
 espeak--
+exfat-fuse--
 exiv2--
 feh--
 ffcall--
@@ -80,6 +86,7 @@ fftw3--
 fftw3-common--
 firefox--
 flac--
+flite--
 fltk--
 fontforge--
 foremost--
@@ -112,7 +119,9 @@ gnome-icon-theme--
 gnome-icon-theme-symbolic--
 gnupg--
 gnuplot--
+gnustep-back--
 gnustep-base--
+gnustep-gui--
 gnustep-libobjc2--
 gnustep-make--
 gnutls--
@@ -130,6 +139,7 @@ gtk+3--
 gtk+3-cups--
 gtk4-update-icon-cache--
 guile--
+gumbo--
 harfbuzz--
 harfbuzz-icu--
 hexedit--
@@ -139,6 +149,7 @@ highway--
 hping--
 htop--
 httrack--
+hunspell--
 hwdata--
 hydra--
 icu4c--
@@ -158,6 +169,7 @@ john-jumbo--
 jpeg--
 json-c--
 json-glib--
+jsoncpp--
 keychain--
 lame--
 lapack--
@@ -166,12 +178,15 @@ lcms--
 lcms2--
 leafpad--
 leptonica--
+libao--
 libarchive--
 libass--
 libassuan--
 libb2--
 libbfio--
 libbluray--
+libcanberra--
+libcanberra-gtk3--
 libcares--
 libcddb--
 libcdio--
@@ -188,6 +203,7 @@ libdvdcss--
 libdvdnav--
 libdvdread--
 liberation-fonts--
+libetpan--
 libevent--
 libexif--
 libffi--
@@ -200,6 +216,7 @@ libgusb--
 libharu--
 libheif--
 libhiredis--
+libical--
 libiconv--
 libid3tag--
 libidn--
@@ -221,6 +238,7 @@ libmypaint--
 libmysofa--
 libnettle--
 libnfs--
+libnotify--
 libogg--
 libpaper--
 libplacebo--
@@ -250,6 +268,7 @@ libunbound--
 libunibreak--
 libunistring--
 libusb1--
+libuv--
 libv4l--
 libvhdi--
 libvidstab--
@@ -277,6 +296,7 @@ mftrace--
 mhash--
 most--
 motif--
+mozilla-dicts-en-GB--
 mp3cut--
 mp3info--
 mpfr--
@@ -327,10 +347,12 @@ p5-Mail-Tools--
 p5-Time-TimeDate--
 p7zip--
 pango--
+pantomime--
 pcaudiolib--
 pcre--
 pcre2--
 pdfcrack--
+pdfkit--
 pftop--
 pinentry--
 pinfo--
@@ -411,6 +433,7 @@ qtbase--
 quirks--
 ranger--
 readline--
+rhash--
 routersploit--
 rsync--
 rtorrent--
@@ -425,6 +448,7 @@ sleuthkit--
 slib--
 snappy--
 snowflake_proxy--
+sound-theme-freedesktop--
 soundtouch--
 spandsp--
 speex--
@@ -437,6 +461,7 @@ stegdetect--
 steghide--
 stunnel--
 suitesparse--
+systempreferences--
 t1utils--
 taglib--
 tb-browser--
@@ -482,6 +507,7 @@ xz--
 yara--
 youtube-dl--
 yt-dlp--
+zh-wqy-zenhei-ttf--
 zimg--
 zip--
 zsh--
