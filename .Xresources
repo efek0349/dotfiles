@@ -9,7 +9,7 @@ XTerm*ScrollBar: false
 
 !xterm*faceName: spleen:pixelsize=8:antialias=false
 xterm*faceName: spleen:pixelsize=16:antialias=false
-!xterm*faceName: spleen:pixelsize=24:antialias=false
+!xterm*faceName: mononoki:pixelsize=12:antialias=false
 !xterm*faceName: spleen:pixelsize=32:antialias=false
 !xterm*faceName: spleen:pixelsize=64:antialias=false
 
@@ -53,7 +53,7 @@ XConsole*background:    black
 
 ! X Settings
 Xcursor.theme: Neutral
-Xcursor.size: 14
+Xcursor.size: 16
 ! Colour Scheme
 #include "/home/efek/.config/termcolours/hybrid"
 
@@ -85,10 +85,15 @@ URxvt.tintColor: white
 URxvt.shading: 10
 
 ! font
-URxvt.font: xft:Spleen:size=14, xft:DejaVu\ Sans\ Mono:size=13
-URxvt.boldFont:  xft:Spleen:size=14, xft:DejaVu\ Sans\ Mono:size=13
-URxvt.italicFont: xft:Spleen:size=14, xft:DejaVu\ Sans\ Mono:size=13
-URxvt.boldItalicFont: xft:Spleen:size=14, xft:DejaVu\ Sans\ Mono:size=13
+!URxvt.font: xft:Spleen:size=16, xft:DejaVu\ Sans\ Mono:size=13
+!URxvt.boldFont:  xft:Spleen:size=16, xft:DejaVu\ Sans\ Mono:size=13
+!URxvt.italicFont: xft:Spleen:size=16, xft:DejaVu\ Sans\ Mono:size=13
+!URxvt.boldItalicFont: xft:Spleen:size=16, xft:DejaVu\ Sans\ Mono:size=13
+
+URxvt.font: xft:terminus:size=14, xft:DejaVu\ Sans\ Mono:size=13
+URxvt.boldFont:  xft:terminus:size=14, xft:DejaVu\ Sans\ Mono:size=13
+URxvt.italicFont: xft:terminus:size=14, xft:DejaVu\ Sans\ Mono:size=13
+URxvt.boldItalicFont: xft:terminus:size=14, xft:DejaVu\ Sans\ Mono:size=13
 URxvt.letterSpace: -1
 
 !Font size

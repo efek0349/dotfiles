@@ -43,8 +43,8 @@ else
 fi
 
 if [[ $(id -u) -ne 0 ]];then
-   alias wifa='doas /sbin/ifconfig athn0 lladdr random up;doas /bin/sh  /etc/wiconfig -s athn0'
-   alias wifi='doas /sbin/ifconfig iwn0 lladdr random up ;doas /bin/sh /etc/wiconfig -s iwn0'
+   alias wifa='doas /sbin/ifconfig em0 lladdr random up;doas /bin/sh  /etc/wiconfig -s em0'
+   alias wifi='doas /sbin/ifconfig iwm0 lladdr random up ;doas /bin/sh /etc/wiconfig -s iwm0'
    alias ads-block='doas /usr/local/bin/ads-block'
    alias reboot='doas /sbin/reboot'
    alias umntusb='doas /sbin/umount /mnt/usbdisk'
@@ -55,10 +55,10 @@ if [[ $(id -u) -ne 0 ]];then
    alias mntusb='doas /usr/local/bin/mntusb'
    alias mntsdc='doas /usr/local/bin/mntsdc'
    alias bioctlcontrol='doas /sbin/bioctl softraid0'
-   alias vim='gvim -u /home/$LOGNAME/.vimrc'
+   alias vim='vim -u /home/$LOGNAME/.vimrc'
 else
-   alias wifa='ifconfig athn0 lladdr random up;sh /etc/wiconfig -s athn0'
-   alias wifi='ifconfig iwn0 lladdr random up;sh /etc/wiconfig -s iwn0'
+   alias wifa='ifconfig em0 lladdr random up;sh /etc/wiconfig -s em0'
+   alias wifi='ifconfig iwm0 lladdr random up;sh /etc/wiconfig -s iwm0'
    alias pkg_up='pkg_add -Dsnap -uVm'
    alias umntsdc='umount /mnt/sdcard'
    alias umntusb='umount /mnt/usbdisk'
@@ -114,4 +114,6 @@ alias httpsrv2='python -m SimpleHTTPServer'
 alias q32='qemu-system-i386 -m 650 -net nic -net user'
 alias q64='qemu-system-x86_64 -m 650 -net nic -net user'
 alias adump='mpv --untimed --vd=dummy -vo null -ao pcm'
-
+alias usb='doas /usr/local/sbin/mount.exfat -o uid=1000 /dev/sd2i /mnt/usb/'
+alias nousb='doas /sbin/umount /mnt/usb'
+alias pkg_add='doas /usr/sbin/pkg_add'
