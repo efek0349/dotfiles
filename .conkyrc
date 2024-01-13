@@ -18,4 +18,5 @@ TEXT
  printf "^fg(\#ff2400) %s " '| ${totalup iwm0}'
  printf "^fg(\#ffffff)^bg(\#282a2e) ^i(.dzen-icons/clock.xbm) %s" '${time %a %b %d %H:%M}'
  printf "^fg(\#aa44ff)^bg(\#282a2e) ^i(.dzen-icons/spkr_01.xbm) %-5s" '${exec /usr/local/bin/vols.sh}%'
+ printf "^fg(\#ff2400)^bg(\#1c1c1c) ^i(.dzen-icons/bat_empty_01.xbm) %s" '${exec apm -l}%'
 echo
