@@ -10,7 +10,7 @@ ______________________________________________________________________________
 ![Term](screenshots/term.png)
 ![Tmux](screenshots/tmux.png)
 ![Vim](screenshots/vim.png)
-![Luakit](screenshots/luakit.png)
+![Chrome](screenshots/chrome.png)
 
 #Mount MFS (622e43df6306aafc.b swap)
 
@@ -68,7 +68,7 @@ f /usr       4GB
 
 g /usr/X11R6 1GB
 
-h /usr/local 25GB
+h /usr/local 40GB
 
 
 i /usr/src   2GB

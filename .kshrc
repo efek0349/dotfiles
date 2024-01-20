@@ -36,6 +36,7 @@ fi
 export PATH HOME TERM
 export HISTFILE=$TMPDIR/.ksh_history
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+#export GREP_COLOR='mt=30;43'
 export GREP_COLOR='30;43'
 export LESSCHARSET=utf-8
 export LESS='-F -g -i -M -R -S -w -X -z-4'
@@ -84,8 +85,35 @@ set -A complete_sudo_1 --  $(/bin/ls `echo $PATH | sed 's/:/ /g'`|sed 's/.*\://;
 set -A complete_sumsignify_1 -- $(/bin/ls -1 /etc/signify)
 ####################################################
 
+battery()
+{
+    local bat=""
+    local level=""
+    local charg=""
+    bat=$(apm -b 2>/dev/null)
+    if [ -n "$bat" -a "$bat" -lt "4" ]; then
+        level=$(apm -l 2>/dev/null)
+        charg=$(apm -a 2>/dev/null)
+        if [ -n "$charg" -a "$charg" -eq "1" ]; then
+            #charging green
+            printf "\033[01;32m$level%%\033[00m"
+        else
+            if [ "$level" -lt "20" ]; then
+                #print red
+                print -- "\033[01;31m$level%\033[00m"
+            else 
+                #print blue
+                print -- "\033[01;34m$level%\033[00m"
+            fi
+        fi
+    else
+        #no battery
+        print -- ""
+    fi
+}
+
 case $(id -u) in
-   0) export PS1='\w$(__git_ps1 " (%s)")\\n\033[0;31m# \033[0m' ;;
-   *) export PS1='\w$(__git_ps1 " (%s)")\\n\033[0;33m$ \033[0m' ;;
+   0) export PS1='$(battery) \w$(__git_ps1 " (%s)")\\n\033[0;31m# \033[0m' ;;
+   *) export PS1='$(battery) \w$(__git_ps1 " (%s)")\\n\033[0;33m$ \033[0m' ;;
 esac
 girl
