@@ -68,7 +68,7 @@ f /usr       4GB
 
 g /usr/X11R6 1GB
 
-h /usr/local 10GB
+h /usr/local 25GB
 
 
 i /usr/src   2GB

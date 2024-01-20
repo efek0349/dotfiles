@@ -5,6 +5,7 @@ aalib--
 abseil-cpp--
 adb--
 adwaita-icon-theme--
+alacritty--
 aom--
 appstream--
 appstream-glib--
@@ -21,6 +22,7 @@ automake--%1.16
 automake--%1.9
 avahi--
 avahi-glib--
+avahi-gtk3--
 avahi-libs--
 axel--
 babl--
@@ -74,6 +76,7 @@ drill--
 dtc--
 duktape--
 dvi2tty--
+dwz--
 dzen2--
 e2fsprogs--
 ectags--
@@ -96,8 +99,10 @@ fontforge--
 foremost--
 freerdp--
 fribidi--
+g++--%11
 gas--
 gawk--
+gcc--%11
 gcc-libs--%8
 gcolor2--
 gcr--
@@ -256,6 +261,7 @@ libmcrypt--
 libmediainfo--
 libmemcached--
 libmng--
+libmpc--
 libmspack--
 libmypaint--
 libmysofa--
@@ -354,6 +360,7 @@ nspr--
 nss--
 ntfs_3g--
 obfs4proxy--
+obsdfreqd--
 offlineimap--
 oledump--
 oletools--
@@ -366,6 +373,7 @@ openjp2--
 openldap-client--
 openpam--
 openssl--%1.1
+openssl--%3.2
 openvpn--
 ophcrack--
 opus--
@@ -420,6 +428,7 @@ py3-bcrypt--
 py3-beaker--
 py3-blinker--
 py3-brotli--
+py3-build--
 py3-cairo--
 py3-capstone--
 py3-certifi--
@@ -433,11 +442,14 @@ py3-cryptography--
 py3-cstruct--
 py3-distro--
 py3-dnspython--
+py3-docutils--
 py3-flask--
+py3-flit_core--
 py3-future--
 py3-gobject3--
 py3-idna--
 py3-imaplib2--
+py3-installer--
 py3-itsdangerous--
 py3-jinja2--
 py3-mako--
@@ -449,7 +461,9 @@ py3-parsing--
 py3-pip--
 py3-ply--
 py3-puremagic--
+py3-pygments--
 py3-pypdf--
+py3-pyproject_hooks--
 py3-requests--
 py3-rfc6555--
 py3-setuptools--
@@ -536,6 +550,7 @@ tshark--
 uchardet--
 unrar--
 unzip--
+updatedb--
 upower--
 vamp-plugin-sdk--
 vim--no_x11-perl-python3-ruby
@@ -549,6 +564,8 @@ wget--
 x264--
 x265--
 xclip--
+xdg-user-dirs--
+xdg-user-dirs-gtk--
 xdg-utils--
 xdotool--
 xpdf--
