@@ -24,8 +24,6 @@ command Firefox     "firefox"
 command iridium     "iridium --enable-pledge --enable-unveil --temp-profile --no-default-browser-check --no-first-run"
 #command Chromium    "chrome --enable-pledge --enable-unveil --incognito --temp-profile --no-default-browser-check --no-first-run"
 command chrome      "chrome --enable-pledge --enable-unveil --no-default-browser-check --no-first-run"
-#command dillo       "sh -c 'dillo >/dev/null'"
-#command vimb       "tabbed -g 1000x600 -c vimb -e"
 command gimp        gimp
 command terminal    urxvtc
 command xterm		xterm
@@ -36,9 +34,7 @@ autogroup	1	"xterm,XTerm"
 autogroup	2 	"Mozilla Firefox"
 autogroup   2   "Firefox"
 autogroup	2	"Iridium"
-autogroup   2   "Chrome"
-autogroup   2   "Chromium"
-#autogroup	2 	"Dillo"
+autogroup   2   "chromium-browser", "Chromium-browser"
 autogroup	3 	"ranger,URxvt"
 autogroup	4 	"gimp,Gimp"
 autogroup	4 	"mpv"
@@ -96,8 +92,6 @@ bind-key 	4S-f     "urxvtc -name ranger -e ranger"
 bind-key	4-f		 "firefox"
 bind-key	4-i      "iridium --enable-pledge --enable-unveil --incognito --temp-profile --no-default-browser-check --no-first-run"
 bind-key    4-c      "chrome --enable-pledge --enable-unveil --no-default-browser-check --no-first-run"
-bind-key 	4-d      "sh -c 'dillo >/dev/null'"
-#bind-key 	4-v      "tabbed -g 1000x600 -c vimb -e"
 bind-key 	4-o      dmenu_run
 
 # Tiling
