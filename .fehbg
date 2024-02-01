@@ -1,2 +1,2 @@
 #!/bin/sh
-'feh' '--image-bg' 'black' '--bg-center' '/home/$USER/Pictures/openbsd.png' 
+feh --image-bg black --bg-center '/home/$USER/Pictures/openbsd.jpg' 

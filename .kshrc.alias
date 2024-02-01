@@ -117,12 +117,15 @@ alias adump='mpv --untimed --vd=dummy -vo null -ao pcm'
 alias usb3='doas /usr/local/sbin/mount.exfat -o uid=1000 /dev/sd3i /mnt/usb/'
 alias usb2='doas /usr/local/sbin/mount.exfat -o uid=1000 /dev/sd2i /mnt/usb/'
 alias nousb='doas /sbin/umount /mnt/usb'
+alias nomtp='doas /sbin/umount /mnt/mtp'
 alias pkg_add='doas /usr/sbin/pkg_add'
 alias wget="wget -U 'noleak'"
 alias curl="curl --user-agent 'noleak'"
 alias dateup="doas /usr/sbin/rdate -ncv pool.ntp.org"
 # Alias kali
-alias kali="ssh root@100.64.1.3"
+alias kali="ssh -Y root@100.64.1.3"
 alias vmk="vmctl status"
 alias vmks="vmctl start 1"
 alias vmkc="vmctl console 1"
+alias su="su -"
+alias phone="simple-mtpfs --device 1 /mnt/mtp -o uid=1000 -o gid=1000 -o allow_other"
