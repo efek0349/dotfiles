@@ -38,6 +38,7 @@ export HISTFILE=$TMPDIR/.ksh_history
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 #export GREP_COLOR='mt=30;43'
 export GREP_COLOR='30;43'
+export GREP_COLORS='mt=30;43'
 export LESSCHARSET=utf-8
 export LESS='-F -g -i -M -R -S -w -X -z-4'
 export USE_CCACHE=1

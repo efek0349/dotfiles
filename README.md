@@ -1,4 +1,4 @@
-#Thinkpad x240
+#Thinkpad e480
 #OpenBSD-current
 ______________________________________________________________________________
 |WM/DE|SHELL|TERM |Editor|FileManager|Multiplexer|Audio|Mail|IRC  |Monitor   |
@@ -20,60 +20,27 @@ ______________________________________________________________________________
 
 #OpenBSD INSTALL (keydisk)
 
-\# fdisk -iy sd0
 
-\# disklabel -E sd0
-
-\>z
-
-\>a a size 70M 
-
-\>a b size 32M
-
-\>a d RAID full
-
-\>w
-
-\>q
-
-\# disklabel -E sd2
-
-\>z
-
-\>a d size 1M RAID
-
-\>a a full 4.2BSD
-
-\>w
-
-\>q
-
-\# newfs /dev/rsd0a
-
-\# bioctl -c C -r 999999999 -l /dev/sd0d -k /dev/sd2d softraid0
-
-\# install
-
-disk size 160GB(total)
+disk size 256GB(total)
 
 a /          5GB
 
 b swap       4GB
 
-d /tmp       4GB
+d /tmp       8GB
 
-e /var       9GB
+e /var       10GB
 
-f /usr       4GB
+f /usr       6GB
 
-g /usr/X11R6 1GB
+g /usr/X11R6 2GB
 
-h /usr/local 40GB
+h /usr/local 50GB
 
 
-i /usr/src   2GB
+i /usr/src   4GB
 
-j /usr/obj   2GB
+j /usr/obj   4GB
 
 k /home      %100
 
@@ -96,11 +63,6 @@ enter
 
 yes
 
-\# mount /dev/sd0a /mnt2
-
-\# cp -v /mnt/bsd* /mnt2
-
-\# reboot
 
 #ADD: softdep,noatime
 

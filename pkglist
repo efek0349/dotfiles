@@ -26,6 +26,7 @@ avahi-gtk3--
 avahi-libs--
 axel--
 babl--
+badwolf--
 bash--
 bcg729--
 binwalk--
@@ -310,6 +311,7 @@ libsmb2--
 libsmi--
 libsndfile--
 libsodium--
+libsoup--
 libsoup3--
 libsoxr--
 libspiro--
@@ -616,6 +618,7 @@ vte3-common--
 w3m--image
 wavpack--
 wayland--
+webkitgtk40--
 webkitgtk41--
 wget--
 woff2--
