@@ -146,6 +146,13 @@ battery()
         print -- ""
     fi
 }
+function fzf-histo {
+    RES=$(fzf --tac --no-sort -e < $HISTFILE)
+    test -n "$RES" || exit 0
+    eval "$RES"
+}
+
+bind -m ^R=fzf-histo^J
 
 case $(id -u) in
    0) export PS1='$(battery) \w$(__git_ps1 " (%s)")\\n\033[0;31m# \033[0m' ;;

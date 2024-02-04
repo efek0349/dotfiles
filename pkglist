@@ -350,6 +350,7 @@ libxslt--
 libyaml--
 libzen--
 links--
+linuxlibertine-fonts-ttf--
 llvm--%16
 lua--%5.1
 lua--%5.2
@@ -378,6 +379,7 @@ mypaint-brushes--
 nano--
 nasm--
 nautilus--
+ncspot--
 neofetch--
 netpbm--
 nghttp2--
@@ -556,6 +558,7 @@ sdl--
 sdl-image--
 sdl2--
 shared-mime-info--
+shellcheck--
 simple-mtpfs--
 sleuthkit--
 slib--
@@ -578,6 +581,7 @@ stunnel--
 suitesparse--
 systempreferences--
 t1utils--
+tabbed--
 taglib--
 tb-browser--
 tb-noscript--
