@@ -1,0 +1,26 @@
+#!/bin/ksh
+
+out_to_console yes
+out_to_x no
+background no
+update_interval 1
+total_run_times 0
+
+TEXT
+ printf "^fg(\#00ffff)^bg(\#1c1c1c) ^i(.dzen-icons/mail.xbm) %s " '${exec $HOME/bin/mail_status}'
+ printf "^fg(\#ffa500)^bg(\#282a2e) ^i(.dzen-icons/info_03.xbm) %s " '${exec cat $HOME/.irssi/irssi_pipe}'
+ printf "^fg(\#66ff33)^bg(\#1c1c1c) ^i(.dzen-icons/temp.xbm) %-5s" '${acpitemp}°C'
+ printf "^fg(\#66ff33)^bg(\#1c1c1c) ^i(.dzen-icons/cpu.xbm) %-5s" '$cpu%'
+ printf "^fg(\#56acff)^bg(\#282a2e) ^i(.dzen-icons/mem.xbm) %-8s" '$mem/$memmax'
+ printf "^fg(\#fff300)^bg(\#1c1c1c) Eth:^i(.dzen-icons/net_down_03.xbm) %-10s " '${downspeed etho0} '
+ printf "^fg(\#fff300) %s " '| ${totaldown eth0}'
+ printf "^fg(\#ff2400)^bg(\#1c1c1c) Eth:^i(.dzen-icons/net_up_03.xbm) %-10s  " '${upspeed etho0} '
+ printf "^fg(\#ff2400) %s " '| ${totalup eth0}'
+ printf "^fg(\#fff300)^bg(\#1c1c1c)  WiFi:^i(.dzen-icons/net_down_03.xbm) %-10s " '${downspeed wlan0} '
+ printf "^fg(\#fff300) %s " '| ${totaldown wlan0}'
+ printf "^fg(\#ff2400)^bg(\#1c1c1c)  WiFi:^i(.dzen-icons/net_up_03.xbm) %-10s  " '${upspeed wlan0} '
+ printf "^fg(\#ff2400) %s " '| ${totalup wlan0}'
+ printf "^fg(\#ffffff)^bg(\#282a2e) ^i(.dzen-icons/clock.xbm) %s" '${time %a %b %d %H:%M}'
+ printf "^fg(\#aa44ff)^bg(\#282a2e) ^i(.dzen-icons/spkr_01.xbm) %-5s" '${exec /usr/bin/vols.sh}'
+ printf "^fg(\#ff2400)^bg(\#1c1c1c) ^i(.dzen-icons/bat_empty_01.xbm) %s" '${battery_percent BAT0}%'
+echo

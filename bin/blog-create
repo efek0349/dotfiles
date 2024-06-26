@@ -1,0 +1,5 @@
+#!/bin/sh
+cd -- /home/efek/mygit/blog
+pelican -s pelicanconf.py
+cd -- /home/efek/mygit/blog/output
+python3.11 -m http.server
