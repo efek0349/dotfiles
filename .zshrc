@@ -266,5 +266,9 @@ if [ -f /etc/zsh_command_not_found ]; then
 fi
 : undercover && export PS1='C:${PWD//\//\\}> '
 : undercover && new_line_before_prompt=no
+
+if [ -f $TMPDIR/keychain-ssh_agent ];then
+. $TMPDIR/keychain-ssh_agent
+fi
 PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%B%F{%(#.red.blue)}%n'$prompt_symbol@$'%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
 girl
