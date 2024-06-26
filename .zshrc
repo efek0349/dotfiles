@@ -246,6 +246,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias q='exit'
 alias apt='doas /usr/bin/apt'
+alias screenshots='import -window root $1'
 
 export PATH=~/bin:$PATH
 # enable auto-suggestions based on the history
@@ -262,3 +263,4 @@ fi
 : undercover && export PS1='C:${PWD//\//\\}> '
 : undercover && new_line_before_prompt=no
 PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%B%F{%(#.red.blue)}%n'$prompt_symbol@$'%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
+girl
