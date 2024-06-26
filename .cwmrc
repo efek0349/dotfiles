@@ -85,7 +85,7 @@ bind-key 	4S-bracketright	"cmus-remote -n"
 bind-key 	4S-slash        "cmus-remote -u"
 
 # Key bindings
-bind-key	4S-p	"doas /sbin/halt -p"
+bind-key	4S-p	"shutdown -h now"
 bind-key 	4S-l     xlock
 bind-key 	4-r      restart
 bind-key 	4-Return "urxvtc -e htop"

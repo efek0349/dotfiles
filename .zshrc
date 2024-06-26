@@ -246,6 +246,8 @@ alias la='ls -A'
 alias l='ls -CF'
 alias q='exit'
 alias apt='doas /usr/bin/apt'
+alias restart='shutdown -r now'
+alias powerooff='shutdown -h now'
 alias screenshots='import -window root $1'
 
 export GREP_COLOR='30;43'
