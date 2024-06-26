@@ -248,6 +248,8 @@ alias q='exit'
 alias apt='doas /usr/bin/apt'
 alias screenshots='import -window root $1'
 
+export GREP_COLOR='30;43'
+export GREP_COLORS='mt=30;43'
 export PATH=~/bin:$PATH
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
