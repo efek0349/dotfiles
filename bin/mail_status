@@ -1,2 +1,2 @@
-#!/bin/sh
+#!/bin/bash
 find $HOME/.mutt/maildir/*/inbox/new/ -type f -print | wc -l | xargs

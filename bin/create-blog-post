@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 progname=${0##*/}
 filename="$HOME/github/blog/content/posts/`date +"%Y"`/`date +"%m"`/"$1".md"

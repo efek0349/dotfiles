@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
   esc=""
   black="${esc}[30m";      red="${esc}[31m"
   yellow="${esc}[33m";     blue="${esc}[34m"

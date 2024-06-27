@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 cd -- /home/efek/mygit/blog
 pelican -s pelicanconf.py
 cd -- /home/efek/mygit/blog/output

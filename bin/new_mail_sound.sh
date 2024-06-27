@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 boxes="$HOME/.mutt/maildir"
 new_mail=false

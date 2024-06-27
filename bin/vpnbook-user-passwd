@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 PASSWD_FILE="vpnbook-password.txt"
 password=$(/usr/bin/ftp -VM -o- https://www.vpnbook.com/freevpn    |

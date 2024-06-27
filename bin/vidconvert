@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # convert videos to x264 + aac
 # http://rodrigopolo.com/ffmpeg/cheats.html
 

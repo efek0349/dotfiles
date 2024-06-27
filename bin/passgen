@@ -1,2 +1,2 @@
-#!/bin/sh
+#!/bin/bash
 < /dev/urandom tr -cd \[:alnum:\] | fold -w $1 | head -n 1

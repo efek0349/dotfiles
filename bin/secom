@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Secure commands
 cd -- /usr/local/bin
 gpg2 -qd "$1" | sh -

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 progname=${0##*/}
 if [ -z "$1" ];then

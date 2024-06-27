@@ -1,2 +1,2 @@
-#!/bin/sh
+#!/bin/bash
 pwgen -s -n $1 -c $2

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 tmp_template=$(mktemp -d -t vpnbook.XXXXXX)
 tmp_ovpns="vpnbook-ovpn.list"
 tmp_doas="vpnbook-doas.conf"
@@ -25,7 +25,7 @@ done
 /bin/cp -v ${tmp_template}/*.ovpn /var/account/local/vpnbook/
 
 /bin/cat << EOF >vpnbook-random-connect.sh
-#!/bin/sh
+#!/bin/bash
 servers=\$(echo '`printf "%s\n" "$(/bin/ls -h)"`' | /usr/bin/sort -R | /usr/bin/head -1)
 doas /usr/local/bin/openvpn-openssl --config /var/account/local/vpnbook/"\$servers"
 EOF

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 dir_name="$(basename $(pwd))"
 username="$(git config user.name)"

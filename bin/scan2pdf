@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Scan an a4 page, compress the image, convert it to pdf
 # Required packages: sane, libtiff
 progname=${0##*/}
