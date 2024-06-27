@@ -1,37 +1,37 @@
 #!/bin/bash
+username=`logname`
 tmp_template=$(mktemp -d -t vpnbook.XXXXXX)
 tmp_ovpns="vpnbook-ovpn.list"
 tmp_doas="vpnbook-doas.conf"
 
-/usr/bin/ftp -VM -o- https://www.vpnbook.com/freevpn |
-			/usr/bin/grep '/free-openvpn-account/'   |
-			/usr/bin/awk -F\" '{ printf "https://www.vpnbook.com%s\n", $2 }' >${tmp_template}/${tmp_ovpns}
+curl -sSL  https://www.vpnbook.com/freevpn |
+			grep '/free-openvpn-account/'   |
+			awk -F\" '{ printf "https://www.vpnbook.com%s\n", $2 }' >${tmp_template}/${tmp_ovpns}
 
 cd -- ${tmp_template}
 
-for i in $(/bin/cat ${tmp_ovpns});
- do 
-	ftp -D Downloading -V $i;
+for i in $(cat ${tmp_ovpns});
+ do
+	wget $i;
  done
 
-for i in $(cat ${tmp_ovpns} | /usr/bin/awk -F/ '{print $5}');
-do 
- /usr/bin/ftp -D Extracting -Vmo - "file:///${tmp_template}/$i" | bsdtar -xf-
+for i in $(cat ${tmp_ovpns} | awk -F/ '{print $5}');
+do
+ bsdtar -xf ${tmp_template}/$i
 done
 
-/usr/bin/sed -i 's/auth-user-pass/auth-user-pass \/home\/"$LOGNAME"\/code\/vpnbook-password.txt/g' *.ovpn
+cd -- ${tmp_template}
 
-/bin/rm *.zip ${tmp_ovpns}
-/bin/cp -v ${tmp_template}/*.ovpn /var/account/local/vpnbook/
-
-/bin/cat << EOF >vpnbook-random-connect.sh
+#rm *.zip
+find  ${tmp_template} -type f -name  '*.ovpn' -exec cp -v {} /var/account/local/vpnbook/ \;
+sed -i 's/auth-user-pass/auth-user-pass \/home\/efek\/code\/vpnbook-password.txt/g' /var/account/local/vpnbook/*.ovpn
+cat << EOF >vpnbook-random-connect.sh
 #!/bin/bash
-servers=\$(echo '`printf "%s\n" "$(/bin/ls -h)"`' | /usr/bin/sort -R | /usr/bin/head -1)
-doas /usr/local/bin/openvpn-openssl --config /var/account/local/vpnbook/"\$servers"
+servers=\$(echo '`printf "%s\n" "$(ls -h /var/account/local/vpnbook/)"`' | sort -R | head -1)
+doas /usr/sbin/openvpn --config /var/account/local/vpnbook/"\$servers"
 EOF
 
-for i in $(printf "%s\n" "`/bin/ls *.ovpn`");
+for i in $(printf "%s\n" "`ls /var/account/local/vpnbook/*.ovpn`");
  do
-  printf "permit nopass $LOGNAME as root cmd /usr/local/bin/openvpn-openssl args --config 
-/var/account/local/vpnbook/${i}\n"
+  printf "permit nopass `logname` as root cmd /usr/sbin/openvpn args --config ${i}\n"
  done > ${tmp_doas}
