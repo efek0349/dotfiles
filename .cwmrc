@@ -24,7 +24,7 @@ command         ircmailbt           "urxvtc -name ircmailbt -e tmux attach-sessi
 command         file                "urxvtc -name ranger -e ranger"
 command         Tor-Browser         "tor-browser"
 command         iridium             "iridium --enable-pledge --enable-unveil --temp-profile --no-default-browser-check --no-first-run"
-command         Chromiumw           "chrome --enable-pledge --enable-unveil --incognito --temp-profile --no-default-browser-check --no-first-run"
+command         Chromium            "chrome --enable-pledge --enable-unveil --incognito --temp-profile --no-default-browser-check --no-first-run"
 command         chrome              "chrome --enable-pledge --enable-unveil --no-default-browser-check --no-first-run"
 command         badwolf             "badwolf"
 command         gimp                gimp
@@ -89,8 +89,6 @@ bind-key        4S-slash            "cmus-remote -u"
 # Key bindings
 bind-key        4S-p                "shutdown -h now"
 bind-key        4S-l                xlock
-bind-key        4S-e                "import -window root /home/efek/Screenshots/$(date '+%Y-%m-%d_%H-%M-%S').png"
-bind-key        4S-k                "import /home/efek/Screenshots/$(date '+%Y-%m-%d_%H-%M-%S').png"
 bind-key        4-r                 restart
 bind-key        4-Return            "urxvtc -e htop"
 bind-key        4-s                 "urxvtc -geometry 85x26"
