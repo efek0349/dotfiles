@@ -241,9 +241,13 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
+alias -g G=' | grep'
+alias -g L=' | less'
 alias ll='ls++ --potsf -a'
 alias la='ls -A'
 alias l='ls -CF'
+alias cp='cp -v'
+alias rm='rm -v'
 alias q='exit'
 alias apt='doas /usr/bin/apt'
 alias apti='doas /usr/bin/apt -y install'
@@ -252,7 +256,10 @@ alias aptl='apt-file list'
 alias up='doas /usr/bin/apt update;doas /usr/bin/apt list --upgradable; doas /usr/bin/apt -y full-upgrade'
 alias restart='shutdown -r now'
 alias powerooff='shutdown -h now'
-alias screenshots='import -window root'
+alias screenshots="import -window root /home/efek/Screenshots/$(date '+%Y-%m-%d_%H-%M-%S').png"
+alias apache2-start='doas /usr/sbin/service apache2 start'
+alias hcat='highlight -O ansi --force'
+alias curl="curl --user-agent 'noleak'"
 
 export GREP_COLOR='30;43'
 export GREP_COLORS='mt=30;43'
