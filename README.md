@@ -3,7 +3,7 @@
 ______________________________________________________________________________
 |WM/DE|SHELL|TERM |Editor|FileManager|Multiplexer|Audio|Mail|IRC  |Monitor   |
 |-----|-----|-----|------|-----------|-----------|-----|----|-----|----------|
-|CWM  |ksh  |urxvt|vim   |ranger     |tmux       |cmus |mutt|irssi|conky,dzen|
+|CWM  |zsh  |urxvt|vim   |ranger     |tmux       |cmus |mutt|irssi|conky,dzen|
 ------------------------------------------------------------------------------
 
 #Screenshots
