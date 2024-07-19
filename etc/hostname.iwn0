@@ -1,1 +1,3 @@
-!/bin/sh /etc/wiconfig -q \$if
+join Efekkk wpakey P@ssW0rddd!!!
+lladdr random
+dhcp

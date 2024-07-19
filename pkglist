@@ -16,6 +16,7 @@ apr-util--
 asciinema--
 aspell--
 at-spi2-core--
+atk2mm--
 autoconf--%2.59
 autoconf--%2.65
 autoconf--%2.69
@@ -30,7 +31,7 @@ avahi-gtk3--
 avahi-libs--
 axel--
 babl--
-badwolf--
+base64--
 bash--
 bcg729--
 binwalk--
@@ -43,6 +44,7 @@ burp--%2.2
 bzip2--
 cabextract--
 cairo--
+cairomm--
 capstone--
 catdoc--
 cblas--
@@ -52,6 +54,7 @@ cdparanoia--
 cdrtools--
 cfitsio--
 chromium--
+clamav--
 claws-mail--
 clisp--
 cmake--
@@ -110,11 +113,13 @@ ffcall--
 ffmpeg--
 fftw3--
 fftw3-common--
+fira-fonts--
 firefox--
 flac--
 flashrom--
 flite--
 fltk--
+fmt--
 fontforge--
 foremost--
 fping--
@@ -191,6 +196,7 @@ gtk+2--
 gtk+3--
 gtk+3-cups--
 gtk+4--
+gtk3mm--
 gtk4-update-icon-cache--
 guile--
 gumbo--
@@ -206,6 +212,7 @@ highway--
 hping--
 htop--
 httrack--
+hubbub--
 hunspell--
 hwdata--
 hydra--
@@ -216,7 +223,6 @@ ijs--
 imlib2--
 iodbc--
 ioquake3--
-iridium--
 irssi--
 iso-codes--
 iso8879--
@@ -227,6 +233,7 @@ jbigkit--
 jefferson--
 john-jumbo--
 jpeg--
+jq--
 json-c--
 json-glib--
 jsoncpp--
@@ -236,6 +243,8 @@ kcodecs--
 kconfig--
 kconfigwidgets--
 kcoreaddons--
+kcrash--
+kdbusaddons--
 kdoctools--
 keychain--
 kf6-breeze-icons--
@@ -244,7 +253,6 @@ kguiaddons--
 ki18n--
 kiconthemes--
 kitemviews--
-kitty--
 kwidgetsaddons--
 kwindowsystem--
 kxmlgui--
@@ -275,6 +283,7 @@ libcerf--
 libcloudproviders--
 libconfuse--
 libcroco--
+libcss--
 libcue--
 libdaemon--
 libdbusmenu--
@@ -282,6 +291,7 @@ libde265--
 libdeflate--
 libdiscid--
 libdispatch--
+libdom--
 libdvbpsi--
 libdvdcss--
 libdvdnav--
@@ -326,6 +336,7 @@ libmaxminddb--
 libmcrypt--
 libmediainfo--
 libmemcached--
+libmilter--
 libmng--
 libmpack--
 libmpc--
@@ -337,9 +348,15 @@ libmysofa--
 libnettle--
 libnfs--
 libnotify--
+libnsbmp--
+libnsgif--
+libnslog--
+libnspsl--
+libnsutils--
 libogg--
 libosinfo--
 libpaper--
+libparserutils--
 libplacebo--
 libportal--
 libportal-gtk4--
@@ -380,6 +397,7 @@ libunbound--
 libunibreak--
 libunistring--
 libusb1--
+libutf8proc--
 libuv--
 libv4l--
 libvhdi--
@@ -388,6 +406,7 @@ libvmdk--
 libvorbis--
 libvpx--
 libvterm--
+libwapcaplet--
 libwebp--
 libwmf--
 libwnck3--
@@ -440,6 +459,7 @@ ncspot--
 neofetch--
 neovim--
 netpbm--
+netsurf--
 nghttp2--
 nghttp3--
 ngtcp2--
@@ -490,8 +510,10 @@ p5-Time-TimeDate--
 p7zip--
 packer--
 pango--
+pangomm--
 pantomime--
 papirus-icon-theme--
+pavucontrol--
 pcaudiolib--
 pcre--
 pcre2--
@@ -747,6 +769,7 @@ xpdf--
 xsel--
 xsoldier--
 xvidcore--
+xxhash--
 xz--
 yara--
 yelp--
