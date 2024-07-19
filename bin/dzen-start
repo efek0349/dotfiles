@@ -1,0 +1,6 @@
+#!/bin/sh
+if [[ -x $(command -v conky) ]];then
+ if [[ -x $(command -v dzen2) ]];then
+    /usr/local/bin/conky -q | /bin/ksh | /usr/local/bin/dzen2 -h '19' -ta r -fn "-*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*" &
+ fi
+fi

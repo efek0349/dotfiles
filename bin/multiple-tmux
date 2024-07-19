@@ -1,0 +1,15 @@
+#!/bin/sh
+
+tmux new-session -d -n 'irssi' 'ksh'
+tmux new-window -n 'mail' 'mutt && ksh'
+tmux new-window -n 'pftop-vpn' 'doas /usr/local/sbin/pftop && ksh'
+tmux split-window -v -l 5 'riseup-vpn && ksh'
+tmux select-pane -t 1
+tmux new-window -n 'keychain' '$HOME/bin/keychain-start && ksh'
+tmux new-window -n 'btop' 'btop && ksh'
+tmux split-window -h 'htop && ksh'
+tmux select-pane -t 0
+tmux new-window -n 'music' 'cmus && ksh'
+tmux new-window -n 'torrent' 'ksh'
+tmux new-window -n 'googler' 'googler && ksh'
+tmux select-window -t 3

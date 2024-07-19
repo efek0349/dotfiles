@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --no-fehbg --bg-center --image-bg '#222222' '/home/efek/Pictures/openbsd.jpg' 

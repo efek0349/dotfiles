@@ -1,0 +1,20 @@
+#!/bin/sh
+
+server="http://firmware.openbsd.org"
+down_dir="$HOME/code/firmware-obsd/"
+setver=$(uname -r | tr -d \.)
+
+[[ -d $down_dir ]] || mkdir -p -m 700 $down_dir
+
+ftp -Vm -o- "$server"/firmware/snapshots/index.txt | cut -c 50- | 
+			egrep -w 'radeondrm|athn|iwn|vmm|intel|uvideo|SHA256*' >$TMPDIR/firmware.txt
+
+cd -- $down_dir
+
+for i in $(cat $TMPDIR/firmware.txt);
+ do 
+        ftp -V "$server"/firmware/snapshots/$i;
+ done
+
+signify -V -e -p /etc/signify/openbsd-${setver}-fw.pub -x $down_dir/SHA256.sig -m - |
+		sha256 -C - $(ls | egrep -e 'tgz')
