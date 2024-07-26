@@ -48,6 +48,7 @@ autogroup       5                   "zathura"
 autogroup       5                   "xpdf"
 autogroup       6                   "ircmailbt,URxvt"
 autogroup       9                   "RiseupVPN"
+autogroup       9                   "riseup-vpn", "RiseupVPN"
 
 # Ignore programs by that name by not drawing borders around them.
 ignore          conky
@@ -88,12 +89,9 @@ bind-key        4S-slash            "cmus-remote -u"
 
 # Key bindings
 bind-key        4S-p                "shutdown -h now"
-bind-key        4S-l                xlock
 bind-key        4-r                 restart
 bind-key        4-Return            "urxvtc -e htop"
 bind-key        4-s                 "urxvtc -geometry 85x26"
-bind-key        4S-s                "sh -c 'zzz;xlock'"
-bind-key        4S-z                "sh -c 'ZZZ'"
 bind-key        4S-t                "urxvtc -e tmux"
 bind-key        4-z                 "urxvtc -e zsh"
 bind-key        4S-f                "urxvtc -name ranger -e ranger"
