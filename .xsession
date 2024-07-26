@@ -1,9 +1,15 @@
+## jp
+## ctrl+space
+## F6 & F7 hiragana <-> katakana
+export GTK_IM_MODULE="xim"
+export QT_IM_MODULE="xim"
+export XMODIFIERS="@im=SCIM"
+
 export ENV=$HOME/.kshrc
 export GTK_USE_XFT=1
 export QT_XFT=true
-export GTK_IM_MODULE=xim
-export GDK_SCALE=1.5
-export QT_SCALE_FACTOR=1.5
+#export GDK_SCALE=1.5
+#export QT_SCALE_FACTOR=1.5
 export MOZ_DISABLE_PANGO=1
 export VDPAU_DRIVER=i965
 export LIBVA_DRIVER_NAME=vdpau
@@ -17,6 +23,13 @@ export LC_TIME="en_US.UTF-8"
 export LC_MESSAGES="en_US.UTF-8"
 export LC_ALL=en_US.UTF-8
 export TERMCMD=urxvtc
+
+## Browser shitz
+export MOZ_USE_XINPUT2=1
+export MOZ_ACCELERATED=1
+export MOZ_WEBRENDER=1
+## WASM for Chromium
+export ENABLE_WASM=1
 
 if [[ -x $(command -v urxvtd) ]];then
 	urxvtd -q -o -f &
@@ -50,6 +63,7 @@ xset r rate 350 45
 # use caps lock as ctrl key
 setxkbmap -option ctrl:nocaps
 
+/usr/bin/doas /usr/sbin/rcctl restart smtpd
 # set background
 sh $HOME/.fehbg
 
@@ -57,4 +71,11 @@ sh $HOME/.fehbg
 #xconsole -geometry -891+730 &
 #exec cwm
 polybar -c ~/.config/polybar/mockup &
+
+## DBus
+#if [ -x /usr/local/bin/dbus-launch -a -z "${DBUS_SESSION_BUS_ADDRESS}" ]; then
+#        eval `dbus-launch --sh-syntax --exit-with-x11`
+#fi
+
+/usr/local/bin/scim -d &
 exec dbus-launch --exit-with-session --sh-syntax cwm

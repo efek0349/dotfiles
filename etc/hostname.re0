@@ -1,3 +1,3 @@
-inet autoconf
 lladdr random
-dhcp
+inet autoconf
+up

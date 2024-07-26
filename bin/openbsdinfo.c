@@ -1,7 +1,7 @@
 /*
 *=======================================================================
-*      Author: D5Nch3ck, (https://github.com/D5Nch3ck)
-*      E-mail: echo ZDVuY2gzY2tAZGlzcm9vdC5vcmcK | base64 -d
+*      Author: efek0349, (https://github.com/efek0349)
+*      E-mail: kndmrefe[at]gmail[dot]com
 * Description: OpenBSD system information
 *     Created: 2015-04-04  T 12:04
 *    Revision: 2018-10-18  T 14:05

@@ -34,7 +34,9 @@ if [[ -f "/home/$LOGNAME/.config/dir_colours" ]]; then
 fi
 #################################################################
 export PATH HOME TERM
-export HISTFILE=$TMPDIR/.ksh_history
+#export HISTFILE=$TMPDIR/.ksh_history
+export HISTFILE="$HOME/.ksh_history"
+export HISTSIZE=50000
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 #export GREP_COLOR='mt=30;43'
 export GREP_COLOR='30;43'
@@ -54,6 +56,9 @@ export WORKON_HOME="/home/$LOGNAME/.virtualenvs"
 if [[ -x $(command -v most) ]];then
 export PAGER='most'
 fi
+export NNN_COLORS='2222'
+export NNN_FCOLORS='0f0f020f0f0f0f0f0f0f0f0f'
+
 ###################################################
 if [ -f /usr/local/share/GNUstep/Makefiles/GNUstep.sh ];then
 . /usr/local/share/GNUstep/Makefiles/GNUstep.sh
@@ -146,6 +151,7 @@ battery()
         print -- ""
     fi
 }
+
 function fzf-histo {
     RES=$(fzf --tac --no-sort -e < $HISTFILE)
     test -n "$RES" || exit 0
@@ -155,7 +161,7 @@ function fzf-histo {
 bind -m ^R=fzf-histo^J
 
 case $(id -u) in
-   0) export PS1='$(battery) \w$(__git_ps1 " (%s)")\\n\033[0;31m# \033[0m' ;;
-   *) export PS1='$(battery) \w$(__git_ps1 " (%s)")\\n\033[0;33m$ \033[0m' ;;
+   0) export PS1='\w$(__git_ps1 " (%s)")\\n\033[0;31m# \033[0m' ;;
+   *) export PS1='\w$(__git_ps1 " (%s)")\\n\033[0;33m$ \033[0m' ;;
 esac
 girl

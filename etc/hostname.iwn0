@@ -1,3 +1,4 @@
 join Efekkk wpakey P@ssW0rddd!!!
 lladdr random
-dhcp
+inet autoconf
+up

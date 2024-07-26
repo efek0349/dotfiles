@@ -364,7 +364,8 @@ function configure {
 	eval ifconfig $if nwid \'$1\' $2 lladdr random up > /dev/null 2>&1
 	rcctl restart dnscrypt_proxy unbound
 	if [ ! $nodhcp ]; then
-		dhclient $if
+		#dhclient $if
+		dhcpleasectl $if
 	fi
 }
 
@@ -452,7 +453,8 @@ function determine {
 		fi
 	fi
 	if [ ! $nodhcp ]; then
-		dhclient $if
+		#dhclient $if
+		dhcpleasectl $if
 	fi
 }
 

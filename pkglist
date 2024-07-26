@@ -107,6 +107,7 @@ exempi--
 exfat-fuse--
 exiv2--
 exo--
+exploitdb--
 fastjar--
 feh--
 ffcall--
@@ -306,7 +307,6 @@ libftdi1--
 libgcrypt--
 libgexiv2--
 libglade2--
-libgnome-keyring--
 libgpg-error--
 libgsf--
 libgtop2--
@@ -545,7 +545,6 @@ pwgen--
 py-cairo--
 py-gobject--
 py-gtk2--
-py-numpy--
 py-pip--
 py-setuptools--
 py3-MarkupSafe--
@@ -597,6 +596,7 @@ py3-packaging--
 py3-paramiko--
 py3-parsing--
 py3-pcapy--
+py3-pefile--
 py3-pip--
 py3-ply--
 py3-puremagic--
@@ -664,6 +664,7 @@ rsync--
 rtorrent--
 ruby--%3.2
 ruby--%3.3
+rust--
 rxvt-unicode--
 samba--
 scim--
@@ -693,6 +694,7 @@ spidermonkey115--
 spirv-tools--
 spleen--
 sqlite3--
+sqlmap--
 sshpass--
 startup-notification--
 stegdetect--
@@ -744,6 +746,7 @@ usmb--
 vamp-plugin-sdk--
 vim--no_x11-perl-python3-ruby
 vlc--
+volatility3--
 vte3--
 vte3-common--
 vulkan-headers--
