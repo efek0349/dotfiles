@@ -9,5 +9,4 @@ ______________________________________________________________________________
 #Screenshots
 ![Term](screenshots/term.png)
 ![Tmux](screenshots/tmux.png)
-![Vim](screenshots/vim.png)
-![Chrome](screenshots/chrome.png)
+![VMM](screenshots/vmm.png)
