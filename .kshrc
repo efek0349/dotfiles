@@ -37,16 +37,16 @@ export PATH HOME TERM
 #export HISTFILE=$TMPDIR/.ksh_history
 export HISTFILE="$HOME/.ksh_history"
 export HISTSIZE=50000
+export XDG_CACHE_HOME=$HOME/.cache 
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-#export GREP_COLOR='mt=30;43'
 export GREP_COLOR='30;43'
 export GREP_COLORS='mt=30;43'
-export LESSCHARSET=utf-8
-export LESS='-F -g -i -M -R -S -w -X -z-4'
+#export LESSCHARSET=utf-8
+#export LESS='-F -g -i -M -R -S -w -X -z-4'
 export USE_CCACHE=1
 export GOPATH="/home/$LOGNAME/code/gopath"
-export PYTHONSTARTUP="/home/$LOGNAME/.pythonrc"
-export PYTHONDOCS="/usr/local/share/doc/python2.7/html"
+#export PYTHONSTARTUP="/home/$LOGNAME/.pythonrc"
+#export PYTHONDOCS="/usr/local/share/doc/python2.7/html"
 export PROJECT_HOME="/home/$LOGNAME/code/python"
 export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3.6"
 export PKG_CACHE="/var/db/Packages/snapshots/`arch -s`/" #  mkdir -p $PKG_CACHE
@@ -56,8 +56,6 @@ export WORKON_HOME="/home/$LOGNAME/.virtualenvs"
 if [[ -x $(command -v most) ]];then
 export PAGER='most'
 fi
-export NNN_COLORS='2222'
-export NNN_FCOLORS='0f0f020f0f0f0f0f0f0f0f0f'
 
 ###################################################
 if [ -f /usr/local/share/GNUstep/Makefiles/GNUstep.sh ];then
@@ -112,8 +110,8 @@ set -A complete_signify_2 -- -q -p -x -c -m -t -z -e
 set -A complete_signify_3 -- -p -x -c -m -t -z
 set -A complete_make_1 -- install clean repackage reinstall search makesum show=
 set -A complete_gpg2 -- --refresh --receive-keys --armor --clearsign --sign --list-key --decrypt --verify --detach-sig
-#set -A complete_git_1 -- pull push clone checkout status commit
-#set -A complete_git_2 -- -m
+set -A complete_git_1 -- pull push clone checkout status commit
+set -A complete_git_2 -- -m
 set -A complete_kill_1 -- -9 -HUP -INFO -KILL -TERM
 set -A complete_xrdb_1 -- -merge
 set -A complete_sudo_1 --  $(/bin/ls `echo $PATH | sed 's/:/ /g'`|sed 's/.*\://;s/\*//g;s/\@//g' | xargs)
