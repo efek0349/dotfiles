@@ -1,0 +1,7 @@
+#!/bin/sh
+rm -R /home/efek/.cache/chromium
+rm -R /home/efek/.cache/mozilla
+mkdir /ramdisk/chromium
+mkdir /ramdisk/mozilla
+ln -s /ramdisk/chromium /home/efek/.cache/chromium
+ln -s /ramdisk/mozilla /home/efek/.cache/mozilla
