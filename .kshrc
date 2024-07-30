@@ -34,6 +34,7 @@ if [[ -f "/home/$LOGNAME/.config/dir_colours" ]]; then
 fi
 #################################################################
 export PATH HOME TERM
+#export TERM="pccon"
 #export HISTFILE=$TMPDIR/.ksh_history
 export HISTFILE="$HOME/.ksh_history"
 export HISTSIZE=50000

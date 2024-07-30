@@ -55,7 +55,6 @@ cdrtools--
 cfitsio--
 chromium--
 clamav--
-claws-mail--
 clisp--
 cmake--
 cmus--
@@ -79,7 +78,6 @@ desktop-file-utils--
 detex--
 devhelp--
 dfc--
-dillo--
 djvulibre--
 dmenu--
 dnscrypt-proxy--
@@ -116,6 +114,7 @@ fftw3--
 fftw3-common--
 fira-fonts--
 firefox--
+fish--
 flac--
 flashrom--
 flite--
@@ -169,6 +168,7 @@ gnome-devel-docs--
 gnome-icon-theme--
 gnome-icon-theme-symbolic--
 gnome-keyring-subversion--
+gnugetopt--
 gnupg--
 gnuplot--
 gnustep-back--
@@ -223,7 +223,6 @@ icu4c--
 ijs--
 imlib2--
 iodbc--
-ioquake3--
 irssi--
 iso-codes--
 iso8879--
@@ -282,6 +281,7 @@ libcdio--
 libcdio-paranoia--
 libcerf--
 libcloudproviders--
+libconfig--
 libconfuse--
 libcroco--
 libcss--
@@ -300,6 +300,7 @@ libdvdread--
 libebml--
 liberation-fonts--
 libetpan--
+libev--
 libevent--
 libexif--
 libffi--
@@ -464,7 +465,6 @@ nghttp2--
 nghttp3--
 ngtcp2--
 nmap--
-nnn--
 noto-emoji--
 noto-fonts--
 noto-nerd-fonts--
@@ -633,8 +633,6 @@ python--%3
 python-tkinter--%2.7
 python-tkinter--%3
 qdbm--
-qemu--
-qemu-ga--
 qt6-qtbase--
 qtbase--
 qtconnectivity--
@@ -666,6 +664,7 @@ ruby--%3.2
 ruby--%3.3
 rust--
 rxvt-unicode--
+sakura--
 samba--
 scim--
 screen--

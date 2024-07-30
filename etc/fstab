@@ -1,11 +1,13 @@
-622e43df6306aafc.b none swap sw
-622e43df6306aafc.a / ffs rw 1 1
-622e43df6306aafc.k /home ffs rw,nodev,nosuid 1 2
-622e43df6306aafc.d /tmp ffs rw,nodev,nosuid 1 2
-622e43df6306aafc.f /usr ffs rw,nodev 1 2
-622e43df6306aafc.g /usr/X11R6 ffs rw,nodev 1 2
-622e43df6306aafc.h /usr/local ffs rw,wxallowed,nodev 1 2
-622e43df6306aafc.j /usr/obj ffs rw,nodev,nosuid 1 2
-622e43df6306aafc.i /usr/src ffs rw,nodev,nosuid 1 2
-622e43df6306aafc.e /var ffs rw,nodev,nosuid 1 2
-622e43df6306aafc.b /tmp/memarea mfs rw,async,-s=2024288 0 0
+e70ee33bcf87664d.a / ffs rw 1 1
+e70ee33bcf87664d.k /home ffs rw,nodev,nosuid 1 2
+e70ee33bcf87664d.d /tmp ffs rw,nodev,nosuid 1 2
+e70ee33bcf87664d.f /usr ffs rw,nodev 1 2
+e70ee33bcf87664d.g /usr/X11R6 ffs rw,nodev 1 2
+e70ee33bcf87664d.h /usr/local ffs rw,wxallowed,nodev 1 2
+e70ee33bcf87664d.j /usr/obj ffs rw,nodev,nosuid 1 2
+e70ee33bcf87664d.i /usr/src ffs rw,nodev,nosuid 1 2
+e70ee33bcf87664d.e /var ffs rw,nodev,nosuid 1 2
+
+swap /ramdisk mfs rw,nodev,nosuid,-s=1024m 0 0
+#/dev/ttyC0      0600 
+#/dev/console:/dev/wskbd:/dev/wskbd0:/dev/wsmouse:/dev/wsmouse0:/dev/ttyCcfg:/dev/ttyC4:/dev/drm0:/dev/drmR128:/dev/dri/card0:/dev/dri/renderD128

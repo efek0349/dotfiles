@@ -6,11 +6,10 @@ export QT_IM_MODULE="xim"
 export XMODIFIERS="@im=SCIM"
 
 export ENV=$HOME/.kshrc
-export GTK_USE_XFT=1
-export QT_XFT=true
+#export GTK_USE_XFT=1
+#export QT_XFT=true
 #export GDK_SCALE=1.5
 #export QT_SCALE_FACTOR=1.5
-export MOZ_DISABLE_PANGO=1
 #export VDPAU_DRIVER=i965
 #export LIBVA_DRIVER_NAME=vdpau
 export RXVT_SOCKET='/tmp/urxvt-socket'
@@ -28,6 +27,7 @@ export TERMCMD=urxvtc
 export MOZ_USE_XINPUT2=1
 export MOZ_ACCELERATED=1
 export MOZ_WEBRENDER=1
+export MOZ_DISABLE_PANGO=1
 ## WASM for Chromium
 export ENABLE_WASM=1
 
@@ -38,9 +38,9 @@ xset fp default
 [[ -d /usr/local/share/fonts/inconsolata ]] && xset +fp /usr/local/share/fonts/inconsolata
 [[ -d /usr/local/share/fonts/terminus ]] && xset +fp /usr/local/share/fonts/terminus
 [[ -d /usr/local/share/fonts/mensch ]] && xset +fp /usr/local/share/fonts/mensch
+[[ -d /usr/local/share/fonts/spleen ]] && xset +fp  /usr/local/share/fonts/spleen
 xset fp rehash
 
-#urxvtd -q -o -f &
 #$HOME/bin/new_mail_sound.sh &
 $HOME/bin/multiple-tmux &
 $HOME/bin/dzen-start &
@@ -51,7 +51,14 @@ xset s off
 
 # increase mouse acceleration
 xset m 3
-xset r rate 300 45
+xset r rate 350 45
+
+# use caps lock as ctrl key
+setxkbmap -option ctrl:nocaps
+
+if [[ -x $(command -v urxvtd) ]];then
+	urxvtd -q -o -f &
+fi
 
 # set background
 sh $HOME/.fehbg
@@ -65,5 +72,7 @@ polybar -c ~/.config/polybar/mockup &
 #        eval `dbus-launch --sh-syntax --exit-with-x11`
 #fi
 
+/usr/bin/doas /usr/sbin/rcctl restart smtpd &
 #/usr/local/bin/scim -d &
+/home/efek/bin/www-ramdisk &
 exec dbus-launch --exit-with-session --sh-syntax cwm
