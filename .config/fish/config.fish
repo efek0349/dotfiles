@@ -3,6 +3,7 @@ end
 command echo ""
 command /home/efek/bin/girl
 
+set -Ua fish_user_paths $HOME/bin
 alias hints="less ~/.config/fish/config.fish"
 alias hcat='highlight -O ansi --force'
 alias sshprx='export http_proxy=socks5://127.0.0.1:3333 https_proxy=socks5://127.0.0.1:3333'
@@ -91,3 +92,17 @@ alias sl='ls'
 alias l='la'
 alias wifa='doas /sbin/ifconfig re0 lladdr random up;doas /usr/sbin/rcctl restart dnscrypt_proxy unbound'
 alias wifi='doas /sbin/ifconfig iwm0 lladdr random up ;doas /bin/sh /etc/wiconfig -s iwm0'
+
+function fish_prompt
+    set_color normal
+    set -l git_branch (git branch 2>/dev/null | sed -n '/\* /s///p')
+    set_color $fish_color_cwd
+    echo -n (prompt_pwd)
+    set_color normal
+    echo -n ' ('
+    set_color purple
+    echo -n "$git_branch"
+    set_color normal
+    echo -n ')>'
+    echo -n ' $ '
+end
