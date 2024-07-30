@@ -4,6 +4,8 @@ command echo ""
 command /home/efek/bin/girl
 
 set -Ua fish_user_paths $HOME/bin
+set -g fish_prompt_pwd_dir_length 7
+
 alias hints="less ~/.config/fish/config.fish"
 alias hcat='highlight -O ansi --force'
 alias sshprx='export http_proxy=socks5://127.0.0.1:3333 https_proxy=socks5://127.0.0.1:3333'
@@ -104,5 +106,5 @@ function fish_prompt
     echo -n "$git_branch"
     set_color normal
     echo -n ')>'
-    echo -n ' $ '
+    echo -ne '\n $ '
 end
