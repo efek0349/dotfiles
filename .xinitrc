@@ -41,6 +41,7 @@ xset fp default
 [[ -d /usr/local/share/fonts/spleen ]] && xset +fp  /usr/local/share/fonts/spleen
 xset fp rehash
 
+ulimit -Sc 0
 #$HOME/bin/new_mail_sound.sh &
 $HOME/bin/multiple-tmux &
 $HOME/bin/dzen-start &
@@ -51,7 +52,7 @@ xset s off
 
 # increase mouse acceleration
 xset m 3
-xset r rate 350 45
+xset r rate 300 45
 
 # use caps lock as ctrl key
 setxkbmap -option ctrl:nocaps
