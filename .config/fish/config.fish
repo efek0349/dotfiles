@@ -1,25 +1,7 @@
 function fish_greeting
 end
-command echo "            _.-|-/\-._     "
-command echo "         \-'          '-.   " 
-command echo "        /    /\    /\    \/          _____                 ____   _____ _____  "
-command echo "      \/  <    .  >  ./.  \/        / ___ \               |  _ \ / ____|  __ \ "
-command echo "  _   /  <         > /___\ |.      / /  / /___  ___  ____ | |_) | (___ | |  | |"
-command echo ".< \ /  <     /\    > ( #) |#)    / /  / / __ \/ _ \/ __ \|  _ < \___ \| |  | |"
-command echo "  | |    <       /\   -.   __\   / /__/ / /_/ /  __/ / / /| |_) |____) | |__| |"
-command echo "   \   <  <   V      > )./_._)|  \_____/ .___/\___/_/ /_/ |____/|_____/|_____/ "
-command echo "  .)/\   <  <  .-     /  \_'_))-..    /_/"
-command echo "      \  <   ./  /  > >      /._./"
-command echo "      /\   <  '-' >    >    /   "
-command echo "        '-._ < v    >   _.-'"
-command echo "         '/ '-.__\/__.-' \'"
 command echo ""
-command sysctl | grep "kern.version" && sysctl | grep "deraadt"
-command echo ""
-command sysctl hw.disknames
-command sysctl | grep "cpu0.temp0"
-command echo ""
-command neofetch uptime memory battery
+command /home/efek/bin/girl
 
 alias hints="less ~/.config/fish/config.fish"
 alias hcat='highlight -O ansi --force'
