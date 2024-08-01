@@ -5,10 +5,10 @@ if [[ ! -d "$TMPDIR" ]]; then
   mkdir -p -m 700 "$TMPDIR"
 fi
 
-#if [ ! -S "$HOME/.gnupg/S.gpg-agent" ];then
+if [ ! -S "$HOME/.gnupg/S.gpg-agent" ];then
  if [ -x /usr/local/bin/keychain ];then
     eval $(keychain --quick --gpg2 --dir $TMPDIR --nolock --agents gpg,gpg,ssh \
-                    --eval 0x0719E8872FD74053 0xCE8D015B2F961358 git_rsa)
+                    --eval 0xC9E85BA0E9E1BACE 0xCE8D015B2F961358 id_rsa)
 	echo "export SSH_AGENT_PID=$SSH_AGENT_PID; export SSH_AUTH_SOCK=$SSH_AUTH_SOCK" > $TMPDIR/keychain-ssh_agent
  fi
-#fi
+fi

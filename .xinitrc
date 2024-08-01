@@ -22,6 +22,7 @@ export LC_TIME="en_US.UTF-8"
 export LC_MESSAGES="en_US.UTF-8"
 export LC_ALL=en_US.UTF-8
 export TERMCMD=urxvtc
+export GPG_TTY=$(tty)
 
 ## Browser shitz
 export MOZ_USE_XINPUT2=1
@@ -41,6 +42,7 @@ xset fp default
 [[ -d /usr/local/share/fonts/spleen ]] && xset +fp  /usr/local/share/fonts/spleen
 xset fp rehash
 
+# Disable core dumps
 ulimit -Sc 0
 #$HOME/bin/new_mail_sound.sh &
 $HOME/bin/multiple-tmux &

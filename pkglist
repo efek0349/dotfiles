@@ -430,6 +430,7 @@ lua--%5.4
 lua-compat53--
 lua-libmpack--
 lua-lpeg--
+lxappearance--
 lz4--
 lzlib--
 lzo2--
@@ -761,6 +762,9 @@ wpebackend-fdo--
 x264--
 x265--
 xclip--
+xcursor-dmz--
+xcursor-neutral--
+xcursor-themes--
 xdg-user-dirs--
 xdg-user-dirs-gtk--
 xdg-utils--

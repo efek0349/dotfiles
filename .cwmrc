@@ -20,7 +20,7 @@ snapdist	4
 command dmenu       dmenu_run
 command leafpad     leafpad
 command tmux        "urxvtc -e tmux"
-command ircmailbt   "urxvtc -name ircmailbt -e tmux attach-session -d -t 0"
+command ircmailbt   "urxvtc -geometry 191x52 -name ircmailbt -e tmux attach-session -d -t 0"
 command file        "urxvtc -name ranger -e ranger"
 command Tor-Browser "tor-browser"
 command Fireox		"firefox"
@@ -49,6 +49,7 @@ autogroup	4 	"mpv"
 autogroup	5 	"zathura"
 autogroup	5 	"xpdf"
 autogroup	6 	"ircmailbt,URxvt"
+autogroup   8   "Mail", "thunderbird"
 
 # Ignore programs by that name by not drawing borders around them.
 ignore		conky
@@ -80,7 +81,7 @@ bind-key 	4-apostrophe  "mixerctl -qn outputs.master=+5"
 bind-key 	4-semicolon   "mixerctl -qn outputs.master=-5"
 
 # Tmux, IrcMailBT
-bind-key 	4-t		"urxvtc -name ircmailbt -e tmux attach-session -d -t 0"
+bind-key 	4-t		"urxvtc -geometry 191x52 -name ircmailbt -e tmux attach-session -d -t 0"
 
 # Cmus control
 bind-key 	4S-bracketleft	"cmus-remote -r"
@@ -103,19 +104,20 @@ bind-key	4-i      "iridium --enable-pledge --enable-unveil --incognito --temp-pr
 bind-key    4-c      "chrome --enable-pledge --enable-unveil --no-default-browser-check --no-first-run"
 bind-key	4-b		 "badwolf"
 bind-key 	4-o      dmenu_run
+bind-key	4-m      thunderbird
 
 # Tiling
 bind-key 	4S-h	window-htile
 bind-key 	4S-v	window-vtile
-bind-key 	4-1	group-only-1
-bind-key 	4-2	group-only-2
-bind-key 	4-3	group-only-3
-bind-key 	4-4	group-only-4
-bind-key 	4-5	group-only-5
-bind-key 	4-6	group-only-6
-bind-key 	4-7	group-only-7
-bind-key 	4-8	group-only-8
-bind-key 	4-9	group-only-9
+bind-key 	4-1 	group-only-1
+bind-key 	4-2	    group-only-2
+bind-key 	4-3	    group-only-3
+bind-key 	4-4	    group-only-4
+bind-key 	4-5	    group-only-5
+bind-key 	4-6	    group-only-6
+bind-key 	4-7	    group-only-7
+bind-key 	4-8	    group-only-8
+bind-key 	4-9	    group-only-9
 bind-key 	4S-1	window-movetogroup-1
 bind-key 	4S-2	window-movetogroup-2
 bind-key 	4S-3	window-movetogroup-3
@@ -125,8 +127,8 @@ bind-key 	4S-6	window-movetogroup-6
 bind-key 	4S-7	window-movetogroup-7
 bind-key 	4S-8	window-movetogroup-8
 bind-key 	4S-9	window-movetogroup-9
-bind-key 	4-j	group-cycle
-bind-key 	4-k	group-rcycle
+bind-key 	4-j	    group-cycle
+bind-key 	4-k	    group-rcycle
 
 # Resize
 bind-key 	C-Up		window-resize-up
