@@ -5,6 +5,7 @@ command /home/efek/bin/girl
 
 set -Ua fish_user_paths $HOME/bin
 set -g fish_prompt_pwd_dir_length 7
+set -x GPG_TTY tty
 
 alias hints="less ~/.config/fish/config.fish"
 alias hcat='highlight -O ansi --force'
@@ -94,6 +95,7 @@ alias sl='ls'
 alias l='la'
 alias wifa='doas /sbin/ifconfig re0 lladdr random up;doas /usr/sbin/rcctl restart dnscrypt_proxy unbound'
 alias wifi='doas /sbin/ifconfig iwm0 lladdr random up ;doas /bin/sh /etc/wiconfig -s iwm0'
+alias reboot='doas /sbin/reboot'
 
 function fish_prompt
     set_color normal
