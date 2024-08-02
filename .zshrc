@@ -48,8 +48,8 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # History configurations
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=2000
+HISTSIZE=90000
+SAVEHIST=20000
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
@@ -245,7 +245,8 @@ alias -g G=' | grep'
 alias -g L=' | less'
 alias ll='ls++ --potsf -a'
 alias la='ls -A'
-alias l='ls -CF'
+alias l='ls -a'
+alias sl='l'
 alias cp='cp -v'
 alias rm='rm -v'
 alias q='exit'
@@ -260,10 +261,23 @@ alias screenshots="import -window root /home/efek/Screenshots/$(date '+%Y-%m-%d_
 alias apache2-start='doas /usr/sbin/service apache2 start'
 alias hcat='highlight -O ansi --force'
 alias curl="curl --user-agent 'noleak'"
+alias wifi="doas /usr/bin/systemctl restart dnscrypt-proxy.service  macspoof@wlan0.service NetworkManager.service"
+alias srm='srm -zv'
+alias flashrom-read="flashrom --programmer ch341a_spi -r"
+alias flashrom-write="flashrom --programmer ch341a_spi -w"
+alias flashrom-erase="flashrom --programmer ch341a_spi -E"
+alias flashrom-verify="flashrom --programmer ch341a_spi -v"
+
 
 export GREP_COLOR='30;43'
 export GREP_COLORS='mt=30;43'
-export PATH=~/bin:$PATH
+export PATH=~/bin:/snap/bin:/home/efek/.cargo/bin:$PATH
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
     . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
