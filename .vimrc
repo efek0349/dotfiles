@@ -1,3 +1,7 @@
+set hlsearch
+syntax on
+filetype plugin indent on
+
 let g:is_unix=1
 "Set shell to be ksh
 set shell=zsh
