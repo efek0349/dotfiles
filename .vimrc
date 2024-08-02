@@ -1,6 +1,8 @@
 let g:is_unix=1
 "Set shell to be ksh
 set shell=ksh
+set t_TI=^[[4?h
+set t_TE=^[[4?l
 
 source /home/$LOGNAME/.vim/bundles.vim
 " encoding dectection
@@ -9,6 +11,7 @@ set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 " enable filetype dectection and ft specific plugin/indent
 filetype plugin indent on
 
+set hlsearch
 " enable syntax hightlight and completion
 syntax on
 
