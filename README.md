@@ -7,6 +7,7 @@ ________________________________________________________________________________
 ----------------------------------------------------------------------------------
 
 #Screenshots
+![Term](screenshots/info.png)
 ![Term](screenshots/term.png)
 ![Tmux](screenshots/tmux.png)
 ![VMM](screenshots/vmm.png)
