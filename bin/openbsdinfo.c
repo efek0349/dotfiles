@@ -4,14 +4,14 @@
 *      E-mail: kndmrefe[at]gmail[dot]com
 * Description: OpenBSD system information
 *     Created: 2015-04-04  T 12:04
-*    Revision: 2018-10-18  T 14:05
+*    Revision: 2024-08-03  T 22:28
 *    FileName: openbsdinfo.c
 *     Compile: $ cc openbsdinfo.c -o openbsdinfo -Wall
 *=======================================================================
 *
 
 OpenBSD system information
-Copyright © 2015 Me
+Copyright © 2024 Me
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -48,6 +48,9 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <sys/time.h>
 #include <sys/sysctl.h>
 #include <sys/statvfs.h>
+#include <sys/types.h>
+#include <sys/mount.h>
+#include <dirent.h>
 
 #define RST "\x1b[0m"
 #define YLW "\x1b[1;33m"
@@ -55,106 +58,135 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define GRY "\x1b[37m"
 
 static void disk(void) {
-    struct statvfs info;
+    struct statfs *mntbuf;
+    int mntsize;
+    unsigned long total = 0;
+    unsigned long free = 0;
+    unsigned long used = 0;
 
-    if(!statvfs("/home", &info)) {
-        unsigned long left  = (info.f_bfree * info.f_frsize);
-        unsigned long total = (info.f_blocks * info.f_frsize);
-        unsigned long used  = total - left;
-        float perc  = (float)used / (float)total;
-        printf(GRY"%37s%s%18s%.2f%% of %.2f GB\n","║",RED" Disk ",GRY"║ "GRY,
-                perc * 100, (float)total / 1e+09);
+    mntsize = getmntinfo(&mntbuf, MNT_NOWAIT);
+    if (mntsize == 0) {
+        perror("getmntinfo");
+        exit(1);
+    }
+
+    for (int i = 0; i < mntsize; i++) {
+        struct statvfs info;
+        if (!statvfs(mntbuf[i].f_mntonname, &info)) {
+            total += info.f_blocks * info.f_frsize;
+            free += info.f_bfree * info.f_frsize;
+        }
+    }
+
+    used = total - free;
+    float used_perc = (float)used / total * 100.0;
+    float avail_perc = (float)free / total * 100.0;
+
+    printf(GRY"%37s%s%13s%.f%% used %.f%% free of %.fGB\n", "║", RED" Disk ", GRY"║ ",
+            used_perc, avail_perc, (float)total / 1e+09);
+}
+
+static void count_packages(void) {
+    DIR *dir;
+    struct dirent *entry;
+    int count = 0;
+
+    dir = opendir("/var/db/pkg");
+    if (dir == NULL) {
+        perror("opendir");
+        exit(1);
+    }
+
+    while ((entry = readdir(dir)) != NULL) {
+        // Ignore "." and ".." entries
+        if (entry->d_name[0] != '.') {
+            count++;
+        }
+    }
+
+    closedir(dir);
+	printf(GRY"%37s%s%10s%d\n", "║", RED" Packages", GRY"║ ", count);
+}
+
+static void uptime(time_t *nowp) {
+    struct timeval boottime;
+    time_t uptime;
+    int days, hrs, mins;
+    int mib[2];
+    size_t size;
+    char buf[256];
+
+    if (strftime(buf, sizeof(buf), NULL, localtime(nowp))) {
+        mib[0] = CTL_KERN;
+        mib[1] = KERN_BOOTTIME;
+        size = sizeof(boottime);
+
+        if (sysctl(mib, 2, &boottime, &size, NULL, 0) != -1 && boottime.tv_sec) {
+            uptime = *nowp - boottime.tv_sec;
+
+            if (uptime > 60)
+                uptime += 30;
+            days = (int)uptime / 86400;
+            uptime %= 86400;
+            hrs = (int)uptime / 3600;
+            uptime %= 3600;
+            mins = (int)uptime / 60;
+            printf(GRY"%37s%s%12s\b", "║", RED" Uptime", GRY"║ ");
+
+            if (days > 0)
+                printf(" %d day%s", days, days > 1 ? "s " : " ");
+
+            if (hrs > 0 || mins > 0)
+                printf(GRY" %02d:%02d"RST, hrs, mins);
+            else
+                printf(GRY" 0:00"RST);
+
+            putchar('\n');
+        }
     }
 }
- static void uptime(time_t *nowp) {
-        struct timeval boottime;
-        time_t uptime;
-        int days, hrs, mins, secs;
-        int mib[2];
-        size_t size;
-        char buf[256];
-
-        if(strftime(buf, sizeof(buf), NULL, localtime(nowp)))
-            mib[0] = CTL_KERN;
-            mib[1] = KERN_BOOTTIME;
-            size = sizeof(boottime);
-
-            if(sysctl(mib, 2, &boottime, &size, NULL, 0) != -1 &&
-                boottime.tv_sec) {
-	                uptime = *nowp - boottime.tv_sec;
-
-        		        if(uptime > 60)
-    		                uptime += 30;
-                			days = (int)uptime / 86400;
-                			uptime %= 86400;
-                			hrs = (int)uptime / 3600;
-                			uptime %= 3600;
-                			mins = (int)uptime / 60;
-                			secs = uptime % 60;
-                			printf(GRY"%37s%s%12s\b","║",RED" Uptime",GRY"║ ");
-
-                		if(days > 0)
-                        		printf(" %d day%s", days, days > 1? "s " : " ");
-
-                		if (hrs > 0 && mins > 0)
-                        		printf(GRY" %02d:%02d"RST, hrs, mins);
-
-                		else if(hrs == 0 && mins > 0)
-                        		printf(GRY" 0:%02d"RST, mins);
-
-                		else
-                        		printf(GRY" 0:00"RST);
-                			putchar('\n');
-        			}
-			}
-
 int main() {
-	FILE *fpt;
-	char packages[50] = " ";
-	//fpt = popen ("pkg_info -q | wc -l | xargs", "r");
-	fpt = popen ("/bin/ls -h /var/db/pkg | wc -l | xargs", "r");
-	fgets(packages, 50, fpt);
-	pclose(fpt);
 
-	struct passwd *p;
-	uid_t uid=1000; /* $ id -u=1000 user id*/
+    struct passwd *p;
+    uid_t uid = 1000; /* $ id -u=1000 user id*/
 
-	if ((p = getpwuid(uid)) == NULL)
-		perror("getpwuid() error");
+    if ((p = getpwuid(uid)) == NULL)
+        perror("getpwuid() error");
 
-time_t now;
-time(&now);
-{
-        char computer[256];
-        struct utsname uts;
-        time_t timeval;
+    time_t now;
+    time(&now);
 
-        (void)time(&timeval);
+    char computer[256];
+    struct utsname uts;
+    time_t timeval;
 
-        if(gethostname(computer, 255) != 0 || uname(&uts) < 0) {
-                fprintf(stderr, "Could not get host information, so fuck off\n");
-                exit(1);
-         }
+    (void)time(&timeval);
 
-        printf(GRY"▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀\n"RST);
-        printf(YLW"  ▄████▄  ▀██████████████████████████████████▄   ▄███████ ████████▄  \n"RST);
-        printf(YLW" ██    ██                            ██    ▀███ ███▀      ██    ▀███ \n"RST);
-        printf(YLW" ██    ██                            ██    ▄██▀ ███▄      ██      ███\n"RST);
-        printf(YLW" ██    ██ ██████▄   ▄████▄  ▄█████▄  ████████   ▀██████▄  ██      ███\n"RST);
-        printf(YLW" ██    ██ ██    ██ ██▀  ▀██ ██   ▀██ ██    ▀██▄       ▀██ ██      ███\n"RST);
-        printf(YLW" ██    ██ ██    ██ ██▀▀▀▀▀▀ ██    ██ ██    ▄███       ▄██ ██    ▄███ \n"RST);
-        printf(YLW"  ▀████▀ ▄██████▀  ▀██▄▄██▀ ██    ██ ████████▀  ███████▀  ████████▀  \n"RST);
-        printf(GRY"%s%s%s%s%s\n","▀▀▀▀▀▀▀▀▀▀",  YLW"██"RST,GRY"▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀"RST,YLW"█▀"RST,GRY"▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀"RST);
-        printf(YLW"%20s%30s%s%16s%s\n",      " ██" RST,GRY"║",RED" OS",      GRY"║ ", uts.sysname);
-        printf(YLW"%25s%29s%s%14s%s\n",     " ▀▀▀▀"RST,GRY"║",RED" User",    GRY"║ ", getlogin());
-        printf(GRY"%37s%s%10s%s\n",                     "║",RED" Hostname",GRY"║ ", computer);
-        printf(GRY"%37s%s%11s%s\n",                     "║",RED" Version", GRY"║ ", uts.release);
-        printf(GRY"%37s%s%10s%s\n",                     "║",RED" Hardware",GRY"║ ", uts.machine);
-        printf(GRY"%37s%s%13s%s\n",                     "║",RED" Shell",   GRY"║ ", p->pw_shell);
-        printf(GRY"%37s%s%11s%s\n",                     "║",RED" Userdir", GRY"║ ", p->pw_dir);
-        printf(GRY"%37s%s%10s%s",                       "║",RED" Packages",GRY"║ ", packages);disk();
-        printf(GRY"%37s%s%14s%s",                       "║",RED" Date",    GRY"║ ", ctime(&timeval));uptime(&now);
-        printf(GRY"%74s\n",                             "╚══════════╝"RST);
-      }
-   return 0;
+    if (gethostname(computer, 255) != 0 || uname(&uts) < 0) {
+        fprintf(stderr, "Could not get host information, so fuck off\n");
+        exit(1);
+    }
+
+    printf(GRY"▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀\n"RST);
+    printf(YLW"  ▄████▄  ▀██████████████████████████████████▄   ▄███████ ████████▄  \n"RST);
+    printf(YLW" ██    ██                            ██    ▀███ ███▀      ██    ▀███ \n"RST);
+    printf(YLW" ██    ██                            ██    ▄██▀ ███▄      ██      ███\n"RST);
+    printf(YLW" ██    ██ ██████▄   ▄████▄  ▄█████▄  ████████   ▀██████▄  ██      ███\n"RST);
+    printf(YLW" ██    ██ ██    ██ ██▀  ▀██ ██   ▀██ ██    ▀██▄       ▀██ ██      ███\n"RST);
+    printf(YLW" ██    ██ ██    ██ ██▀▀▀▀▀▀ ██    ██ ██    ▄███       ▄██ ██    ▄███ \n"RST);
+    printf(YLW"  ▀████▀ ▄██████▀  ▀██▄▄██▀ ██    ██ ████████▀  ███████▀  ████████▀  \n"RST);
+    printf(GRY"%s%s%s%s%s\n", "▀▀▀▀▀▀▀▀▀▀", YLW"██"RST, GRY"▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀"RST, YLW"█▀"RST, GRY"▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀"RST);
+    printf(YLW"%20s%30s%s%16s%s\n", " ██" RST, GRY"║", RED" OS", GRY"║ ", uts.sysname);
+    printf(YLW"%25s%29s%s%14s%s\n", " ▀▀▀▀"RST, GRY"║", RED" User", GRY"║ ", getlogin());
+    printf(GRY"%37s%s%10s%s\n", "║", RED" Hostname", GRY"║ ", computer);
+    printf(GRY"%37s%s%11s%s\n", "║", RED" Version", GRY"║ ", uts.release);
+    printf(GRY"%37s%s%10s%s\n", "║", RED" Hardware", GRY"║ ", uts.machine);
+    printf(GRY"%37s%s%13s%s\n", "║", RED" Shell", GRY"║ ", p->pw_shell);
+    printf(GRY"%37s%s%11s%s\n", "║", RED" Userdir", GRY"║ ", p->pw_dir);
+	count_packages();
+    disk();
+    printf(GRY"%37s%s%14s%s", "║", RED" Date", GRY"║ ", ctime(&timeval));
+    uptime(&now);
+    printf(GRY"%74s\n", "╚══════════╝"RST);
+    return 0;
 }
