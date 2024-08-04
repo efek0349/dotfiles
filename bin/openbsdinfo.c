@@ -183,7 +183,7 @@ int main() {
     printf(GRY"%37s%s%10s%s\n", "║", RED" Hardware", GRY"║ ", uts.machine);
     printf(GRY"%37s%s%13s%s\n", "║", RED" Shell", GRY"║ ", p->pw_shell);
     printf(GRY"%37s%s%11s%s\n", "║", RED" Userdir", GRY"║ ", p->pw_dir);
-	count_packages();
+    count_packages();
     disk();
     printf(GRY"%37s%s%14s%s", "║", RED" Date", GRY"║ ", ctime(&timeval));
     uptime(&now);

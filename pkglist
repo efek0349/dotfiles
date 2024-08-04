@@ -38,6 +38,7 @@ binwalk--
 blas--
 boehm-gc--
 boost--
+botan2--
 brotli--
 btop--
 burp--%2.2
@@ -118,6 +119,7 @@ fish--
 flac--
 flashrom--
 flite--
+flock--
 fltk--
 fmt--
 fontforge--
@@ -144,6 +146,7 @@ geoclue2--
 geolite2-country--
 geteltorito--
 gettext-runtime--
+gettext-tools--
 ggrep--
 ghostscript--
 ghostscript-fonts--
@@ -219,6 +222,7 @@ hwdata--
 hydra--
 hyphen--
 ibm-plex--
+ibus--
 icu4c--
 ijs--
 imlib2--
@@ -306,6 +310,7 @@ libexif--
 libffi--
 libftdi1--
 libgcrypt--
+libgdiplus--
 libgexiv2--
 libglade2--
 libgpg-error--
@@ -389,6 +394,7 @@ libtalloc--
 libtar--
 libtasn1--
 libtermkey--
+libtextstyle--
 libtheora--
 libtool--
 libtorrent--
@@ -440,6 +446,7 @@ metaauto--
 mftrace--
 mhash--
 minizip--
+mono--
 mononoki--
 most--
 motif--
@@ -466,6 +473,7 @@ nghttp2--
 nghttp3--
 ngtcp2--
 nmap--
+node--
 noto-emoji--
 noto-fonts--
 noto-nerd-fonts--
@@ -578,6 +586,8 @@ py3-flask--
 py3-flit_core--
 py3-future--
 py3-gobject3--
+py3-greenlet--
+py3-hatch_nodejs_version--
 py3-idna--
 py3-imaplib2--
 py3-impacket--
@@ -591,6 +601,8 @@ py3-mako--
 py3-markdown--
 py3-markdown-it--
 py3-mdurl--
+py3-msgpack--
+py3-neovim--
 py3-olefile--
 py3-openssl--
 py3-packaging--
@@ -600,6 +612,7 @@ py3-pcapy--
 py3-pefile--
 py3-pip--
 py3-ply--
+py3-poetry-core--
 py3-puremagic--
 py3-pygments--
 py3-pypdf--
@@ -657,6 +670,8 @@ quirks--
 ranger--
 readline--
 rhash--
+ripgrep--
+rnp--
 routersploit--
 rpm2cpio--
 rsync--
@@ -722,6 +737,7 @@ texlive_mktexlsr--
 texlive_synctex--
 texlive_texmf-buildset--
 thunar--
+thunderbird--
 tiff--
 tk--%8.5
 tk--%8.6
@@ -742,9 +758,12 @@ unrar--
 unzip--iconv
 updatedb--
 upower--
+uriparser--
+usbutil--
+usbutils--
 usmb--
 vamp-plugin-sdk--
-vim--no_x11-perl-python3-ruby
+vim--gtk3-perl-python3-ruby
 vlc--
 volatility3--
 vte3--
@@ -757,6 +776,7 @@ wayland--
 webkitgtk40--
 webkitgtk41--
 wget--
+wmctrl--
 woff2--
 wpebackend-fdo--
 x264--
@@ -765,6 +785,7 @@ xclip--
 xcursor-dmz--
 xcursor-neutral--
 xcursor-themes--
+xcursorgen--
 xdg-user-dirs--
 xdg-user-dirs-gtk--
 xdg-utils--
@@ -778,6 +799,7 @@ xvidcore--
 xxhash--
 xz--
 yara--
+yarn--
 yelp--
 yelp-xsl--
 youtube-dl--
@@ -787,6 +809,5 @@ zathura-pdf-mupdf--
 zh-wqy-zenhei-ttf--
 zimg--
 zip--
-zsh--
 zstd--
 zziplib--

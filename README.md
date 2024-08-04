@@ -11,3 +11,10 @@ ________________________________________________________________________________
 ![Term](screenshots/term.png)
 ![Tmux](screenshots/tmux.png)
 ![VMM](screenshots/vmm.png)
+
+# Configuration
+## Add User to Group
+```
+# usermod -L staff efek
+# usermod -G staff efek
+```
