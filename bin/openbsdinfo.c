@@ -148,10 +148,12 @@ static void uptime(time_t *nowp) {
 int main() {
 
     struct passwd *p;
-    uid_t uid = 1000; /* $ id -u=1000 user id*/
+    uid_t uid;
+    uid = getuid();
 
-    if ((p = getpwuid(uid)) == NULL)
+    if ((p = getpwuid(uid)) == NULL) {
         perror("getpwuid() error");
+    }
 
     time_t now;
     time(&now);
@@ -175,9 +177,10 @@ int main() {
     printf(YLW" ██    ██ ██    ██ ██▀  ▀██ ██   ▀██ ██    ▀██▄       ▀██ ██      ███\n"RST);
     printf(YLW" ██    ██ ██    ██ ██▀▀▀▀▀▀ ██    ██ ██    ▄███       ▄██ ██    ▄███ \n"RST);
     printf(YLW"  ▀████▀ ▄██████▀  ▀██▄▄██▀ ██    ██ ████████▀  ███████▀  ████████▀  \n"RST);
-    printf(GRY"%s%s%s%s%s\n", "▀▀▀▀▀▀▀▀▀▀", YLW"██"RST, GRY"▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀"RST, YLW"█▀"RST, GRY"▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀"RST);
+    printf(GRY"%s%s%s%s%s\n", "▀▀▀▀▀▀▀▀▀▀", YLW"██"RST, GRY"▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀"RST,
+            YLW"█▀"RST, GRY"▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀"RST);
     printf(YLW"%20s%30s%s%16s%s\n", " ██" RST, GRY"║", RED" OS", GRY"║ ", uts.sysname);
-    printf(YLW"%25s%29s%s%14s%s\n", " ▀▀▀▀"RST, GRY"║", RED" User", GRY"║ ", getlogin());
+    printf(YLW"%25s%29s%s%14s%s\n", " ▀▀▀▀"RST, GRY"║", RED" User", GRY"║ ", p->pw_name);
     printf(GRY"%37s%s%10s%s\n", "║", RED" Hostname", GRY"║ ", computer);
     printf(GRY"%37s%s%11s%s\n", "║", RED" Version", GRY"║ ", uts.release);
     printf(GRY"%37s%s%10s%s\n", "║", RED" Hardware", GRY"║ ", uts.machine);

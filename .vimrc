@@ -1,17 +1,53 @@
+call plug#begin('~/.vim/plugged')
+
+Plug 'jiangmiao/auto-pairs'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'sjl/gundo.vim'
+Plug 'godlygeek/tabular'
+Plug 'scrooloose/nerdtree'
+Plug 'humiaozuzu/TabBar'
+Plug 'majutsushi/tagbar'
+Plug 'tpope/vim-fugitive'
+Plug 'Lokaltog/vim-powerline'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-sleuth'
+Plug 'preservim/vim-markdown'
+Plug 'altercation/vim-colors-solarized'
+Plug 'dense-analysis/ale'
+Plug 'vim-scripts/c.vim'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+
+call plug#end()
+
+" ALE yapılandırması
+let g:ale_linters = {
+\   'c': ['gcc', 'clang'],
+\}
+
+" Auto-pairs ayarları
+let g:auto_pairs = 1
+
+let g:coc_global_extensions = ['coc-clangd']
+
+set hlsearch
+syntax on
+filetype plugin indent on
+
 let g:is_unix=1
 "Set shell to be ksh
 set shell=ksh
-set t_TI=^[[4?h
-set t_TE=^[[4?l
 
-source /home/$LOGNAME/.vim/bundles.vim
 " encoding dectection
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 
 " enable filetype dectection and ft specific plugin/indent
 filetype plugin indent on
 
-set hlsearch
 " enable syntax hightlight and completion
 syntax on
 
@@ -44,7 +80,7 @@ autocmd FileType c,cpp setlocal foldmethod=syntax foldnestmax=5
 set viminfo=
 set history=0
 set nocompatible
-set nofoldenable                                                  " disable folding"
+"set nofoldenable                                                  " disable folding"
 set confirm                                                       " prompt when existing from an unsaved file
 set backspace=indent,eol,start                                    " More powerful backspacing
 set t_Co=256                                                      " Explicitly tell vim that the terminal has 256 colors "
@@ -59,7 +95,7 @@ set title                                                         " show file in
 set laststatus=2                                                  " use 2 lines for the status bar
 set matchtime=2                                                   " show matching bracket for 0.2 seconds
 set matchpairs+=<:>                                               " specially for html
-" set relativenumber
+"set relativenumber
 
 " Default Indentation
 set autoindent
@@ -128,23 +164,6 @@ let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
 let NERDTreeShowBookmarks=1
 let NERDTreeWinPos = "right"
 
-" ZenCoding
-let g:user_emmet_expandabbr_key='<C-j>'
-
-
-" Enable omni completion.
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType c setlocal omnifunc=ccomplete#Complete
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns.erlang = '[a-zA-Z]\|:'
-
-" SuperTab
-" let g:SuperTabDefultCompletionType='context'
-let g:SuperTabDefaultCompletionType = '<C-X><C-U>'
-let g:SuperTabRetainCompletionType=2
-
 " ctrlp
 set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_Store  " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
@@ -194,7 +213,7 @@ if has("gui_running")
     set go=aAce  " remove toolbar
     set guicursor=a:block-blinkon0
     "set transparency=30
-    set guifont=Spleen\ 16
+    set guifont=Fira\ Code\ 14
     set showtabline=2
     set columns=140
     set lines=40
@@ -207,8 +226,8 @@ func SetTitle()
     if &filetype == 'sh'
         call setline(1, "#!/bin/sh")
         call append(line(".")+0, "#########################################################################")
-        call append(line(".")+1, "#   Author: D5Nch3ck, (https://github.com/D5Nch3ck)")
-        call append(line(".")+2, "#   E-mail: echo ZDVuY2gzY2tAZGlzcm9vdC5vcmcK | openssl enc -base64 -d")
+        call append(line(".")+1, "#   Author: efek0349, (https://github.com/efek0349)")
+        call append(line(".")+2, "#   E-mail: kndmrefe[at]gmail[dot]com")
         call append(line(".")+3, "#  Created: ".strftime("%F  T %H:%M"))
         call append(line(".")+4, "# Revision: none")
         call append(line(".")+5, "# FileName: ".expand("%"))
@@ -227,3 +246,4 @@ function! AppendModeline()
   call append(line("$"), l:modeline)
 endfunction
 nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
+
