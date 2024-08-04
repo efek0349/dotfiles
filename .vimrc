@@ -1,3 +1,26 @@
+call plug#begin('~/.vim/plugged')
+
+"Plug 'gmarik/vundle'
+Plug 'Shougo/neocomplcache'
+Plug 'Raimondi/delimitMate'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'sjl/gundo.vim'
+Plug 'godlygeek/tabular'
+Plug 'scrooloose/nerdtree'
+Plug 'humiaozuzu/TabBar'
+Plug 'majutsushi/tagbar'
+Plug 'tpope/vim-fugitive'
+Plug 'Lokaltog/vim-powerline'
+Plug 'scrooloose/syntastic'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'tpope/vim-markdown'
+Plug 'altercation/vim-colors-solarized'
+
+call plug#end()
+
 set hlsearch
 syntax on
 filetype plugin indent on
@@ -6,7 +29,6 @@ let g:is_unix=1
 "Set shell to be ksh
 set shell=zsh
 
-source /home/efek/.vim/bundles.vim
 " encoding dectection
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 
