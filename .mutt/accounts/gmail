@@ -1,0 +1,12 @@
+  set from      = "kndmrefe@gmail.com"
+  set sendmail  = "/usr/local/bin/msmtp -a gmail"
+  set mbox      = "+gmail/all_mail"
+  unset record
+  set postponed     = "+gmail/drafts"
+  set signature     = ~/.mutt/accounts/gmail_sig
+  set pgp_sign_as=0xC9E85BA0E9E1BACE
+
+color status green default
+
+# vim: ft=muttrc
+

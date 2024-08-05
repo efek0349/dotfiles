@@ -34,7 +34,7 @@ alias pkg_add="doas /usr/sbin/pkg_add"
 alias reboot="doas /sbin/reboot"
 alias q="exit"
 alias x="startx"
-alias wifi="doas /bin/sh /etc/wiconfig -s iwn0"
+alias wifi="doas /bin/sh /etc/wiconfig -s iwm0"
 alias ix="curl -n -F 'f:1=<-' http://ix.io"
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias dir="gls --color=auto"
@@ -44,13 +44,13 @@ alias sl="gls -hF --color=auto --group-directories-first"
 alias ll="ls++ --potsf -a"
 alias la="gls -a --color=auto --group-directories-first"
 alias lsp="ls++"
-alias ifconfig='grcc ifconfig'
-alias netstat='grcc netstat'
-alias traceroute='grcc traceroute'
-alias diff='grcc diff'
-alias df='grcc df'
-alias ping='grcc ping'
-alias ps='grcc ps'
+alias ifconfig='grc ifconfig'
+alias netstat='grc netstat'
+alias traceroute='grc traceroute'
+alias diff='grc diff'
+alias df='grc df'
+alias ping='grc ping'
+alias ps='grc ps'
 alias srm="gshred -uzfv -n"
 alias grep="ggrep --color=always"
 alias mg="mg -n"
@@ -61,3 +61,4 @@ alias sshprx="export http_proxy=socks5://127.0.0.1:3333 https_proxy=socks5://127
 alias torprx="export http_proxy=socks5://127.0.0.1:9150 https_proxy=socks5://127.0.0.1:9150"
 alias unprx="unset http_proxy https_proxy"
 #################################################################
+

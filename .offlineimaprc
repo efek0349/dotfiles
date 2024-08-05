@@ -3,7 +3,7 @@
 #
 [general]
 ui = ttyui
-accounts = disroot
+accounts = gmail
 maxsyncaccounts = 1
 pythonfile = ~/.mutt/nametrans.py
 
@@ -17,26 +17,26 @@ sep = " "
 footer = "\n"
 
 
-[Account disroot]
-localrepository = disroot-local
-remoterepository = disroot-remote
+[Account gmail]
+localrepository = gmail-local
+remoterepository = gmail-remote
 # background: minutes between syncs; num quick-syncs between auto refreshes
 autorefresh = 3
 quick = 6
 
 
-[Repository disroot-local]
+[Repository gmail-local]
 type = Maildir
-localfolders = ~/.mutt/maildir/disroot
+localfolders = ~/.mutt/maildir/gmail
 nametrans = nt_local
 
 
-[Repository disroot-remote]
+[Repository gmail-remote]
 auth_mechanisms = LOGIN
 type = IMAP
-remotehost = disroot.org
-remoteuser = d5nch3ck@disroot.org
-remotepasseval = disroot2()
+remotehost = mail.google.com
+remoteuser = kndmrefe@gmail.com
+remotepasseval = gmail()
 #remoteport = 993
 realdelete = yes
 postsynchook = notmuch new

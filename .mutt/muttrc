@@ -45,7 +45,7 @@ unset markers
   set sort              = threads
   set sort_aux          = reverse-last-date-received
 unset sort_re
-  set spoolfile		= "+disroot/inbox"
+  set spoolfile		= "+gmail/inbox"
   set thorough_search
   set thread_received
   set tilde
@@ -58,9 +58,9 @@ unset wait_key
 alternative_order text/plain text/enriched text/html
 
 # override with account specific folder-hooks
-folder-hook  disroot/* source ~/.mutt/accounts/disroot
+folder-hook  gmail/* source ~/.mutt/accounts/gmail
 # collapse subscribed mailing threads
-folder-hook disroot/openbsd_* "exec collapse-all"
+folder-hook gmail/openbsd_* "exec collapse-all"
 
 # headers to show
 ignore *
@@ -90,17 +90,17 @@ bind index,pager <up> sidebar-prev
 bind index,pager <right> sidebar-open
 
 # shortcut macros
-macro index ,d   "<change-folder> =disroot/inbox<enter>"	  	"go to Disroot Inbox"
-macro index ,oa  "<change-folder> =disroot/openbsd_announce<enter>"	"go to OpenBSD Announce"
-macro index ,om  "<change-folder> =disroot/openbsd_mics<enter>" 	"go to OpenBSD Mics"
-macro index ,op  "<change-folder> =disroot/openbsd_ports<enter>"      	"go to OpenBSD Ports"
-macro index ,ot  "<change-folder> =disroot/openbsd_tech<enter>"  	"go to OpenBSD Tech"
+macro index ,d   "<change-folder> =gmail/inbox<enter>"	  	"go to Disroot Inbox"
+macro index ,oa  "<change-folder> =gmail/openbsd_announce<enter>"	"go to OpenBSD Announce"
+macro index ,om  "<change-folder> =gmail/openbsd_mics<enter>" 	"go to OpenBSD Mics"
+macro index ,op  "<change-folder> =gmail/openbsd_ports<enter>"      	"go to OpenBSD Ports"
+macro index ,ot  "<change-folder> =gmail/openbsd_tech<enter>"  	"go to OpenBSD Tech"
 
 # source files
 source $alias_file
 source ~/.mutt/colours
 source ~/.mutt/mailboxes
-source ~/.mutt/accounts/disroot
+source ~/.mutt/accounts/gmail
 # gpg signature
 source ~/.mutt/gpg.rc
 set crypt_autosign=yes

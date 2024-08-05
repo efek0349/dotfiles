@@ -20,7 +20,7 @@ chatnets = {
   freenode = {
     type = "IRC";
     sasl_mechanism = "PLAIN";
-    sasl_username = "D5N_ch3ck";
+    sasl_username = "efek0349";
     sasl_password = "***********************************";
   };
 };
@@ -108,9 +108,9 @@ statusbar = {
 
 settings = {
   core = {
-    real_name = "D5N_ch3ck";
-    user_name = "D5N_ch3ck";
-    nick = "D5N_ch3ck";
+    real_name = "efek0349";
+    user_name = "efek0349";
+    nick = "efek0349";
     awaylog_file = "/dev/null";
     recode_autodetect_utf8 = "yes";
     recode_fallback = "CP1252";
