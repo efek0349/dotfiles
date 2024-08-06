@@ -60,11 +60,14 @@ alias nmap="doas /usr/local/bin/nmap"
 alias tsharkwifi="doas /usr/local/bin/tshark -i iwm0"
 alias kali="ssh root@100.64.1.3"
 alias obsd="ssh root@100.64.2.3"
+alias obsda="ssh root@100.64.3.3"
 alias vmk="vmctl status"
 alias vmkk="vmctl start 1"
 alias vmko="vmctl start 2"
+alias vmka="vmctl start 3"
 alias vmkkc="vmctl console 1"
 alias vmkoc="vmctl console 2"
+alias vmkoa="vmctl console 3"
 alias su="su -"
 alias phone="simple-mtpfs --device 1 /mnt/mtp -o uid=1000 -o gid=1000 -o allow_other"
 alias screenshotf="import -window root"
@@ -95,7 +98,9 @@ alias sl='ls'
 alias l='la'
 alias wifa='doas /sbin/ifconfig re0 lladdr random up;doas /usr/sbin/rcctl restart dnscrypt_proxy unbound'
 alias wifi='doas /sbin/ifconfig iwm0 lladdr random up ;doas /bin/sh /etc/wiconfig -s iwm0'
+alias wifi-menu='doas /usr/local/bin/wifi-menu iwm0'
 alias reboot='doas /sbin/reboot'
+alias efek='printf "1\n"| wifi-menu'
 
 function fish_prompt
     set_color normal
