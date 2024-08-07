@@ -36,8 +36,15 @@ let g:coc_global_extensions = ['coc-clangd']
 "uninstall command :CocUninstall coc-tabnine
 let g:coc_source_disable = {'tabnine': 1}
 
-"install pkg_add universal-ctags--iconv
-let g:gutentags_ctags_executable = 'uctags'
+"remove tags file
+let g:gutentags_ctags_executable = 'ectags'
+let g:gutentags_generate_on_new = 0
+let g:gutentags_generate_on_missing = 0
+let g:gutentags_generate_on_write = 0
+let g:gutentags_generate_on_empty_buffer = 0
+"let g:gutentags_ctags_extra_args = ['--ignore-unsupported-options']
+
+set tags=
 
 set hlsearch
 syntax on
@@ -122,8 +129,8 @@ autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
 autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0
 autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
-" For all text files set 'textwidth' to 78 characters.
-autocmd FileType text setlocal textwidth=78
+" For all text files set 'textwidth' to 80 characters.
+autocmd FileType text setlocal textwidth=80
 
 " tabbar
 let g:Tb_MaxSize = 2
@@ -221,7 +228,7 @@ if has("gui_running")
     set go=aAce  " remove toolbar
     set guicursor=a:block-blinkon0
     "set transparency=30
-    set guifont=Fira\ Code\ 14
+    set guifont=Fira\ Sans:h14
     set showtabline=2
     set columns=140
     set lines=40
@@ -269,3 +276,4 @@ function! AppendModeline()
   call append(line("$"), l:modeline)
 endfunction
 nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
+
