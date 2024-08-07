@@ -21,7 +21,6 @@ Plug 'vim-scripts/c.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-
 call plug#end()
 
 " ALE yapılandırması
@@ -33,7 +32,11 @@ let g:ale_linters = {
 let g:auto_pairs = 1
 
 let g:coc_global_extensions = ['coc-clangd']
+
+"uninstall command :CocUninstall coc-tabnine
 let g:coc_source_disable = {'tabnine': 1}
+
+"install pkg_add universal-ctags--iconv
 let g:gutentags_ctags_executable = 'uctags'
 
 set hlsearch
@@ -64,7 +67,6 @@ colorscheme hybrid
 " highlight current line
 au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
-
 
 set colorcolumn=80
 highlight ColorColumn ctermbg=red guibg=red
@@ -245,6 +247,21 @@ endfunc
 " Append modeline after last line in buffer.
 " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
 " files.
+
+" Temporarily disable syntax highlighting for pasting from the clipboard, then re-enable it
+function! PasteWithSyntaxOff()
+    " Disable syntax highlighting
+    syntax off
+    " Paste the clipboard content
+    normal! "+p
+    " Re-enable syntax highlighting
+    syntax on
+endfunction
+
+" Map the above function to a key combination
+" For example, bind this function to <Leader>p
+nnoremap <Leader>p :call PasteWithSyntaxOff()<CR>
+
 function! AppendModeline()
   let l:modeline = printf(" vim: set ts=%d sw=%d tw=%d ff=%s ft=%s %set :",
 	\&tabstop, &shiftwidth, &textwidth, &fileformat, &filetype, &expandtab ? '' : 'no')
@@ -252,4 +269,3 @@ function! AppendModeline()
   call append(line("$"), l:modeline)
 endfunction
 nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
-

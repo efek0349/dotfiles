@@ -1,0 +1,73 @@
+{
+  // 本文件 coc-settings.json 是 Vim/Neovim 的代码补全插件 coc.nvim 的配置文件.
+  //
+  // 安装方法:
+  //
+  // 1. Vim
+  //    curl -sfLo ~/.vim/coc-settings.json https://raw.githubusercontent.com/vimhack/dotfiles/master/vim/coc-settings.json
+  //
+  // 2. Neovim
+  //    curl -sfLo ~/.config/nvim/coc-settings.json https://raw.githubusercontent.com/vimhack/dotfiles/master/vim/coc-settings.json
+
+"vim.autoSwitchInputMethod.enable": true,
+"vim.autoSwitchInputMethod.defaultIM": "xkb:us::eng",
+"vim.autoSwitchInputMethod.obtainIMCmd": "/usr/local/bin/ibus engine",
+"vim.autoSwitchInputMethod.switchIMCmd": "/usr/local/bin/ibus engine {im}"
+
+  // edit, split, vsplit, tab drop
+  "coc.preferences.jumpCommand": "tab drop",
+
+  // 彻底禁用coc.nvim提供的代码错误提示功能
+  "diagnostic.enable": false,
+  // 将coc.nvim提供的代码错误提示通过vim的ale插件提示,
+  // 只在 diagnostic.enable 为 true 时有效.
+  "diagnostic.displayByAle": true,
+
+  "TabNine disable
+  "coc.source.tabnine.enable": false
+
+  "git.addGBlameToBufferVar": true,
+  "git.showCommitInFloating": true,
+  "git.addedSign.hlGroup": "GitAddSign",
+  "git.changedSign.hlGroup": "GitChangeSign",
+  "git.removedSign.hlGroup": "GitDeleteSign",
+  "git.topRemovedSign.hlGroup": "GitTopDeleteSign",
+  "git.changeRemovedSign.hlGroup": "GitChangeDeleteSign",
+
+  // Rust
+  // doc: https://github.com/fannheyward/coc-rust-analyzer
+  "rust-analyzer.enable": true,
+
+  "languageserver": {
+    // luarocks install --server=http://luarocks.org/dev lua-lsp
+    // luarocks install luacheck
+    // luarocks-5.3 install lcf
+    // doc: https://github.com/Alloyed/lua-lsp
+    "lua": {
+      "command": "lua-lsp",
+      "filetypes": ["lua"]
+    },
+    // npm i -g dockerfile-language-server-nodejs
+    // doc: https://github.com/rcjsuen/dockerfile-language-server-nodejs
+    "dockerfile": {
+      "command": "docker-langserver",
+      "filetypes": [
+        "dockerfile"
+      ],
+      "args": [
+        "--stdio"
+      ]
+    },
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": [
+        "terraform",
+        "tf"
+      ],
+    "initializationOptions": {},
+    "settings": {}
+    }
+  },
+  "snippets.ultisnips.pythonPrompt": false
+}
