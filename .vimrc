@@ -62,7 +62,12 @@ colorscheme hybrid
 " highlight current line
 au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
-set cursorline cursorcolumn
+
+
+set colorcolumn=80
+highlight ColorColumn ctermbg=red guibg=red
+
+"set cursorline cursorcolumn
 
 " Toggle fold
 nnoremap <space> za
