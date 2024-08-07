@@ -133,3 +133,4 @@ alias screenshotk="import"
 alias cp="cp -v"
 alias mv="mv -v"
 alias rm="rm -v"
+alias sshproxy='ssh -N -D 10000 _proxy@localhost'

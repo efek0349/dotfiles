@@ -35,6 +35,7 @@ fi
 #################################################################
 export PATH HOME TERM
 #export TERM="pccon"
+export all_proxy=socks5://localhost:10000
 #export HISTFILE=$TMPDIR/.ksh_history
 export HISTFILE="$HOME/.ksh_history"
 export HISTSIZE=50000

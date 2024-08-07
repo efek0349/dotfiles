@@ -6,6 +6,7 @@ command /home/efek/bin/girl
 set -Ua fish_user_paths $HOME/bin
 set -g fish_prompt_pwd_dir_length 7
 set -x GPG_TTY tty
+set -x all_proxy socks5://localhost:10000
 
 alias hints="less ~/.config/fish/config.fish"
 alias hcat='highlight -O ansi --force'
@@ -101,6 +102,7 @@ alias wifi='doas /sbin/ifconfig iwm0 lladdr random up ;doas /bin/sh /etc/wiconfi
 alias wifi-menu='doas /usr/local/bin/wifi-menu iwm0'
 alias reboot='doas /sbin/reboot'
 alias efek='printf "1\n"| wifi-menu'
+alias sshproxy='ssh -N -D 10000 _proxy@localhost'
 
 function fish_prompt
     set_color normal

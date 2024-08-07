@@ -18,3 +18,75 @@ ________________________________________________________________________________
 # usermod -L staff efek
 # usermod -G staff efek
 ```
+
+# Local Proxy Setup 
+ref: [solene](https://dataswamp.org/~solene/2023-12-31-hardened-openbsd-workstation.html)
+
+### 1. Create a New User
+First, create a new user named `_proxy`:
+
+```
+# useradd -s /sbin/nologin -m _proxy
+```
+2. Authorize SSH Key
+
+Copy your SSH public key to the _proxy user's authorized keys file:
+
+```
+# cp id_rsa.pub /home/_proxy/.ssh/authorized_keys
+```
+3. PF Configuration
+
+Edit the PF configuration file to block TCP and UDP protocols for the efek user:
+
+```
+# nano /etc/pf.conf
+```
+Content:
+
+```
+block return out proto {tcp udp} user efek
+```
+
+Then reload the PF configuration:
+
+```
+# pfctl -f /etc/pf.conf
+```
+
+4. SSH Configuration
+
+Edit the SSH configuration file for the efek user:
+
+```
+$ nano /home/efek/.ssh/config
+```
+
+Content:
+
+```
+Host localhost
+  User _proxy
+  ControlMaster auto
+  ControlPath ~/.ssh/%h%p%r.sock
+  ControlPersist 60
+
+Host *.*
+  ProxyJump localhost
+```
+
+5. Establish SSH Tunnel
+
+Now, establish an SSH tunnel to localhost as the _proxy user:
+
+```
+$ ssh -N -D 10000 _proxy@localhost
+```
+
+6. Configure Proxy Settings
+
+Set the proxy settings for the system-wide configuration:
+
+```
+$ export all_proxy=socks5://localhost:10000
+```
