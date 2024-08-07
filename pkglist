@@ -466,9 +466,7 @@ nasm--
 nautilus--
 ncspot--
 neofetch--
-neovim--
 netpbm--
-netsurf--
 nghttp2--
 nghttp3--
 ngtcp2--
@@ -680,7 +678,6 @@ ruby--%3.2
 ruby--%3.3
 rust--
 rxvt-unicode--
-sakura--
 samba--
 scim--
 screen--
@@ -754,6 +751,7 @@ uchardet--
 unarr--
 unibilium--
 unifont--
+universal-ctags--iconv
 unrar--
 unzip--iconv
 updatedb--

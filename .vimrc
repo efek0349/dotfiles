@@ -33,6 +33,8 @@ let g:ale_linters = {
 let g:auto_pairs = 1
 
 let g:coc_global_extensions = ['coc-clangd']
+let g:coc_source_disable = {'tabnine': 1}
+let g:gutentags_ctags_executable = 'uctags'
 
 set hlsearch
 syntax on
@@ -66,7 +68,6 @@ au WinEnter * set cursorline cursorcolumn
 
 set colorcolumn=80
 highlight ColorColumn ctermbg=red guibg=red
-
 "set cursorline cursorcolumn
 
 " Toggle fold
