@@ -36,7 +36,7 @@ let g:coc_global_extensions = ['coc-clangd']
 "uninstall command :CocUninstall coc-tabnine
 let g:coc_source_disable = {'tabnine': 1}
 
-"remove tags file
+"Disable tags file
 let g:gutentags_ctags_executable = 'ectags'
 let g:gutentags_generate_on_new = 0
 let g:gutentags_generate_on_missing = 0
