@@ -228,7 +228,8 @@ if has("gui_running")
     set go=aAce  " remove toolbar
     set guicursor=a:block-blinkon0
     "set transparency=30
-    set guifont=Fira\ Sans:h14
+"    set guifont=Fira\ Sans:h14
+	set guifont=Inconsolata\ 12
     set showtabline=2
     set columns=140
     set lines=40
