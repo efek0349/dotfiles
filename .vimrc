@@ -20,6 +20,7 @@ Plug 'dense-analysis/ale'
 Plug 'vim-scripts/c.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
 
 call plug#end()
 
