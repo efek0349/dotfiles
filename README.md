@@ -13,10 +13,42 @@ ________________________________________________________________________________
 ![VMM](screenshots/vmm.png)
 
 # Configuration
+
 ## Add User to Group
+
 ```
 # usermod -L staff efek
 # usermod -G staff efek
+```
+
+# Crontab Configuration for Battery Low Warning
+
+```
+$ crontab -e
+```
+
+### Listing the scheduled jobs in Crontab:
+
+```
+$ crontab -l
+```
+
+### Deleting all jobs from the Crontab:
+
+```
+$ crontab -r
+```
+
+### A crontab file is written as follows:
+
+```
+*  *  *  *  *  /home/efek/bin/checkbatt
+```
+
+### This is a Crontab entry that will run every minute:
+
+```
+*/1 * * * * /home/efek/bin/checkbatt
 ```
 
 # Local Proxy Setup 
@@ -28,20 +60,23 @@ First, create a new user named `_proxy`:
 ```
 # useradd -s /sbin/nologin -m _proxy
 ```
-2. Authorize SSH Key
+
+### 2. Authorize SSH Key
 
 Copy your SSH public key to the _proxy user's authorized keys file:
 
 ```
 # cp id_rsa.pub /home/_proxy/.ssh/authorized_keys
 ```
-3. PF Configuration
+
+### 3. PF Configuration
 
 Edit the PF configuration file to block TCP and UDP protocols for the efek user:
 
 ```
 # nano /etc/pf.conf
 ```
+
 Content:
 
 ```
@@ -54,9 +89,9 @@ Then reload the PF configuration:
 # pfctl -f /etc/pf.conf
 ```
 
-4. SSH Configuration
+### 4. SSH Configuration
 
-Edit the SSH configuration file for the efek user:
+Edit the SSH configuration file for the `efek` user:
 
 ```
 $ nano /home/efek/.ssh/config
@@ -75,15 +110,15 @@ Host *.*
   ProxyJump localhost
 ```
 
-5. Establish SSH Tunnel
+### 5. Establish SSH Tunnel
 
-Now, establish an SSH tunnel to localhost as the _proxy user:
+Now, establish an SSH tunnel to localhost as the `_proxy` user:
 
 ```
 $ ssh -N -D 10000 _proxy@localhost
 ```
 
-6. Configure Proxy Settings
+### 6. Configure Proxy Settings
 
 Set the proxy settings for the system-wide configuration:
 

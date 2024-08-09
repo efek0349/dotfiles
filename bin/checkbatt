@@ -1,0 +1,11 @@
+#!/bin/ksh
+
+export DISPLAY=:0.0
+
+[[ `apm -a` = 1 ]] && exit
+
+battlvl="$(apm -l)"
+
+[[ $battlvl -lt 18 ]] && zenity --info --text="Critical level: $(apm -m) minutes" && /usr/bin/aucat -i /home/efek/.mutt/beep.wav && exit 
+[[ $battlvl -lt 22 ]] && zenity --info --text="Battery level: $(apm -m) minutes"
+exit 0
