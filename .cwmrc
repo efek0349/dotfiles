@@ -104,15 +104,15 @@ bind-key    4-6	    group-only-6
 bind-key    4-7	    group-only-7
 bind-key    4-8	    group-only-8
 bind-key    4-9	    group-only-9
-bind-key    4S-1	window-movetogroup-1
-bind-key    4S-2	window-movetogroup-2
-bind-key    4S-3	window-movetogroup-3
-bind-key    4S-4	window-movetogroup-4
-bind-key    4S-5	window-movetogroup-5
-bind-key    4S-6	window-movetogroup-6
-bind-key    4S-7	window-movetogroup-7
-bind-key    4S-8	window-movetogroup-8
-bind-key    4S-9	window-movetogroup-9
+bind-key    4S-1    window-movetogroup-1
+bind-key    4S-2    window-movetogroup-2
+bind-key    4S-3    window-movetogroup-3
+bind-key    4S-4    window-movetogroup-4
+bind-key    4S-5    window-movetogroup-5
+bind-key    4S-6    window-movetogroup-6
+bind-key    4S-7    window-movetogroup-7
+bind-key    4S-8    window-movetogroup-8
+bind-key    4S-9    window-movetogroup-9
 bind-key    4-j     group-cycle
 bind-key    4-k	    group-rcycle
 
