@@ -68,11 +68,11 @@ bind-key 	4S-Return	window-hide
 bind-key 	4S-c		window-delete
 
 # volume
-bind-key 	4-apostrophe  "mixerctl -qn outputs.master=+5"
-bind-key 	4-semicolon   "mixerctl -qn outputs.master=-5"
+bind-key 	4-apostrophe    "mixerctl -qn outputs.master=+5"
+bind-key 	4-semicolon     "mixerctl -qn outputs.master=-5"
 
 # Tmux, IrcMailBT
-bind-key 	4-t		"urxvtc -geometry 191x52 -name ircmailbt -e tmux attach-session -d -t 0"
+bind-key 	4-t             "urxvtc -geometry 191x52 -name ircmailbt -e tmux attach-session -d -t 0"
 
 # Cmus control
 bind-key 	4S-bracketleft	"cmus-remote -r"
