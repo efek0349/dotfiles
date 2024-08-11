@@ -68,11 +68,11 @@ bind-key    4S-Return       window-hide
 bind-key    4S-c            window-delete
 
 # volume
-bind-key    4-apostrophe  "mixerctl -qn outputs.master=+5"
-bind-key    4-semicolon   "mixerctl -qn outputs.master=-5"
+bind-key    4-apostrophe    "mixerctl -qn outputs.master=+5"
+bind-key    4-semicolon     "mixerctl -qn outputs.master=-5"
 
 # Tmux, IrcMailBT
-bind-key    4-t           "urxvtc -geometry 191x52 -name ircmailbt -e tmux attach-session -d -t 0"
+bind-key    4-t             "urxvtc -geometry 191x52 -name ircmailbt -e tmux attach-session -d -t 0"
 
 # Cmus control
 bind-key    4S-bracketleft  "cmus-remote -r"
@@ -80,61 +80,61 @@ bind-key    4S-bracketright "cmus-remote -n"
 bind-key    4S-slash        "cmus-remote -u"
 
 # Key bindings
-bind-key    4S-p        "doas /sbin/halt -p"
-bind-key    4S-l        xlock
-bind-key    4-r         restart
-bind-key    4-Return    "urxvtc -e ksh"
-bind-key    4-s         "urxvtc -geometry 85x26"
-bind-key    4S-t        "urxvtc -e tmux"
-bind-key    4S-f        "urxvtc -name ranger -e ranger"
-bind-key    4-f         "firefox"
-bind-key    4-c         "chrome --enable-pledge --enable-unveil --no-default-browser-check --no-first-run"
-bind-key    4-o         dmenu_run
-bind-key    4-m         thunderbird
+bind-key    4S-p            "doas /sbin/halt -p"
+bind-key    4S-l            xlock
+bind-key    4-r             restart
+bind-key    4-Return        "urxvtc -e ksh"
+bind-key    4-s             "urxvtc -geometry 85x26"
+bind-key    4S-t            "urxvtc -e tmux"
+bind-key    4S-f            "urxvtc -name ranger -e ranger"
+bind-key    4-f             "firefox"
+bind-key    4-c             "chrome --enable-pledge --enable-unveil --no-default-browser-check --no-first-run"
+bind-key    4-o             dmenu_run
+bind-key    4-m             thunderbird
 
 # Tiling
-bind-key    4S-h        window-htile
-bind-key    4S-v        window-vtile
-bind-key    4-1         group-only-1
-bind-key    4-2         group-only-2
-bind-key    4-3         group-only-3
-bind-key    4-4         group-only-4
-bind-key    4-5         group-only-5
-bind-key    4-6         group-only-6
-bind-key    4-7         group-only-7
-bind-key    4-8         group-only-8
-bind-key    4-9         group-only-9
-bind-key    4S-1        window-movetogroup-1
-bind-key    4S-2        window-movetogroup-2
-bind-key    4S-3        window-movetogroup-3
-bind-key    4S-4        window-movetogroup-4
-bind-key    4S-5        window-movetogroup-5
-bind-key    4S-6        window-movetogroup-6
-bind-key    4S-7        window-movetogroup-7
-bind-key    4S-8        window-movetogroup-8
-bind-key    4S-9        window-movetogroup-9
-bind-key    4-j         group-cycle
-bind-key    4-k         group-rcycle
+bind-key    4S-h            window-htile
+bind-key    4S-v            window-vtile
+bind-key    4-1             group-only-1
+bind-key    4-2             group-only-2
+bind-key    4-3             group-only-3
+bind-key    4-4             group-only-4
+bind-key    4-5             group-only-5
+bind-key    4-6             group-only-6
+bind-key    4-7             group-only-7
+bind-key    4-8             group-only-8
+bind-key    4-9             group-only-9
+bind-key    4S-1            window-movetogroup-1
+bind-key    4S-2            window-movetogroup-2
+bind-key    4S-3            window-movetogroup-3
+bind-key    4S-4            window-movetogroup-4
+bind-key    4S-5            window-movetogroup-5
+bind-key    4S-6            window-movetogroup-6
+bind-key    4S-7            window-movetogroup-7
+bind-key    4S-8            window-movetogroup-8
+bind-key    4S-9            window-movetogroup-9
+bind-key    4-j             group-cycle
+bind-key    4-k             group-rcycle
 
 # Resize
-bind-key    C-Up        window-resize-up
-bind-key    C-Down      window-resize-down
-bind-key    C-Left      window-resize-left
-bind-key    C-Right     window-resize-right
-bind-key    CS-Up       window-resize-up-big
-bind-key    CS-Down     window-resize-down-big
-bind-key    CS-Left     window-resize-left-big
-bind-key    CS-Right    window-resize-right-big
+bind-key    C-Up            window-resize-up
+bind-key    C-Down          window-resize-down
+bind-key    C-Left          window-resize-left
+bind-key    C-Right         window-resize-right
+bind-key    CS-Up           window-resize-up-big
+bind-key    CS-Down         window-resize-down-big
+bind-key    CS-Left         window-resize-left-big
+bind-key    CS-Right        window-resize-right-big
 
 # Move
-bind-key    4-Up        window-move-up
-bind-key    4-Down      window-move-down
-bind-key    4-Left      window-move-left
-bind-key    4-Right     window-move-right
-bind-key    4S-Up       window-move-up-big
-bind-key    4S-Down     window-move-down-big
-bind-key    4S-Left     window-move-left-big
-bind-key    4S-Right    window-move-right-big
+bind-key    4-Up            window-move-up
+bind-key    4-Down          window-move-down
+bind-key    4-Left          window-move-left
+bind-key    4-Right         window-move-right
+bind-key    4S-Up           window-move-up-big
+bind-key    4S-Down         window-move-down-big
+bind-key    4S-Left         window-move-left-big
+bind-key    4S-Right        window-move-right-big
 
 # Disable
 unbind-key  CM-m
@@ -161,6 +161,6 @@ unbind-key  CM-k
 unbind-key  CM-l
 
 # Mouse bindings
-bind-mouse  4-1 window-move
-bind-mouse  4-5 window-hide
-bind-mouse  4-3 window-resize
+bind-mouse  4-1             window-move
+bind-mouse  4-5             window-hide
+bind-mouse  4-3             window-resize
