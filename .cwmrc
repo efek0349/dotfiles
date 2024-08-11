@@ -81,16 +81,16 @@ bind-key    4S-slash        "cmus-remote -u"
 
 # Key bindings
 bind-key    4S-p        "doas /sbin/halt -p"
-bind-key    4S-l         xlock
-bind-key    4-r          restart
-bind-key    4-Return     "urxvtc -e ksh"
-bind-key    4-s          "urxvtc -geometry 85x26"
-bind-key    4S-t         "urxvtc -e tmux"
-bind-key    4S-f         "urxvtc -name ranger -e ranger"
-bind-key    4-f          "firefox"
-bind-key    4-c          "chrome --enable-pledge --enable-unveil --no-default-browser-check --no-first-run"
-bind-key    4-o          dmenu_run
-bind-key    4-m          thunderbird
+bind-key    4S-l        xlock
+bind-key    4-r         restart
+bind-key    4-Return    "urxvtc -e ksh"
+bind-key    4-s         "urxvtc -geometry 85x26"
+bind-key    4S-t        "urxvtc -e tmux"
+bind-key    4S-f        "urxvtc -name ranger -e ranger"
+bind-key    4-f         "firefox"
+bind-key    4-c         "chrome --enable-pledge --enable-unveil --no-default-browser-check --no-first-run"
+bind-key    4-o         dmenu_run
+bind-key    4-m         thunderbird
 
 # Tiling
 bind-key    4S-h        window-htile
