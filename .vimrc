@@ -25,9 +25,7 @@ Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
 call plug#end()
 
 " ALE yapılandırması
-let g:ale_linters = {
-\   'c': ['gcc', 'clang'],
-\}
+let g:ale_linters = {   'c': ['gcc', 'clang'],}
 
 " Auto-pairs ayarları
 let g:auto_pairs = 1
