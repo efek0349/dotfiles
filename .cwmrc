@@ -1,10 +1,10 @@
 # Ignore programs by that name by not drawing borders around them.
-ignore polybar
-ignore conky                                                               
-ignore dzen2                                                               
-ignore dmenu                                                               
-ignore xclock                                                              
-ignore xconsole
+ignore      polybar
+ignore      conky                                                               
+ignore      dzen2                                                               
+ignore      dmenu                                                               
+ignore      xclock                                                              
+ignore      xconsole
 
 borderwidth 1
 color       activeborder   "#f0c674"
