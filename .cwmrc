@@ -136,6 +136,11 @@ bind-key    4S-Down         window-move-down-big
 bind-key    4S-Left         window-move-left-big
 bind-key    4S-Right        window-move-right-big
 
+# Mouse bindings
+bind-mouse  4-1             window-move
+bind-mouse  4-5             window-hide
+bind-mouse  4-3             window-resize
+
 # Disable
 unbind-key  CM-m
 unbind-key  CM-r
@@ -159,8 +164,3 @@ unbind-key  CM-h
 unbind-key  CM-j
 unbind-key  CM-k
 unbind-key  CM-l
-
-# Mouse bindings
-bind-mouse  4-1             window-move
-bind-mouse  4-5             window-hide
-bind-mouse  4-3             window-resize
