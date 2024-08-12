@@ -1,18 +1,19 @@
 function fish_greeting
 end
 command echo ""
+
 command /home/efek/bin/girl
 
-set -Ua fish_user_paths $HOME/bin
-set -g fish_prompt_pwd_dir_length 7
+set -Ua fish_user_paths $HOME/bin $HOME/go/bin
+set -g fish_prompt_pwd_dir_length 10
 set -x GPG_TTY tty
-#set all_proxy socks5://localhost:10000
+#set -x  ALL_PROXY socks5://127.0.0.1:10000
+set -x GOBIN $HOME/go/bin
+set -x GREP_COLOR  '30;43'
+set -x GREP_COLORS 'mt=30;43'
 
 alias hints="less ~/.config/fish/config.fish"
 alias hcat='highlight -O ansi --force'
-alias sshprx='export http_proxy=socks5://127.0.0.1:3333 https_proxy=socks5://127.0.0.1:3333'
-alias torprx='export http_proxy=socks5://127.0.0.1:9150 https_proxy=socks5://127.0.0.1:9150'
-alias unprx='unset http_proxy https_proxy'
 alias srm='gshred -uzfv --random-source=/dev/random -n'
 alias q='exit'
 alias qe='qemu-system-x86_64 -enable-kvm'
@@ -22,19 +23,14 @@ alias gdb='gdb -n'
 #alias gpg='gpg2'
 alias gdd='gdd status=progress'
 alias init-tor='torsocks w3m http://kpvz7ki2v5agwt35.onion -no-cookie -graph -N'
-alias attacks1='iridium --enable-unveil --enable-pledge --incognito http://map.norsecorp.com/'
-alias attacks2='iridium --enable-unveil --enable-pledge --incognito http://www.digitalattackmap.com/'
 alias sha256control='sha256 -c  < ~/code/systemsums.txt |grep FAILED'
 alias mg='mg -n'
 alias vime='gvim -u /home/$LOGNAME/.vimencrypt -x'
 alias gvime='gvim -u /home/$LOGNAME/.vimencrypt -x'
 alias rcp='rsync --progress'
-alias ytdown='youtube-dl --no-mtime --restrict-filenames'
-alias ytmp3='youtube-dl -x --audio-format mp3'
 alias hr='printf $(printf "\e[$(gshuf -i 91-97 -n 1);1m%%%ds\e[0m\n" $(tput cols)) | tr " " ='
-alias disks='echo "`hr`";echo "______ d i s k . u s a g e"; echo "_____________________________________________________ _ _ "; df -h;echo "`hr`"'
 alias wget='wget -o "$TMPDIR"/wget-log.txt --hsts-file="$TMPDIR"/wget-hist.txt -c'
-alias neo='neofetch --color_blocks off --w3m /home/$LOGNAME/Pictures/OpenBSDpuffy.png'
+alias neo='neofetch --color_blocks off --w3m /home/$LOGNAME/Pictures/openbsd.jpg'
 alias w3m='w3m -no-cookie -graph -N'
 alias gld='git log --topo-order --stat --patch --full-diff'
 alias ssh-agdres='eval `ssh-agent -s`;ssh-add $HOME/.ssh/git_rsa'
@@ -53,9 +49,9 @@ alias usb2='doas /usr/local/sbin/mount.exfat -o uid=1000 /dev/sd2i /mnt/usb/'
 alias nousb='doas /sbin/umount /mnt/usb'
 alias nomtp='doas /sbin/umount /mnt/mtp'
 alias pkg_add='doas /usr/sbin/pkg_add'
+alias up='doas /usr/sbin/pkg_add -Dsnap -uUVv'
 alias ports.sh='doas /usr/local/bin/ports.sh'
 alias wget="wget -U 'noleak'"
-alias curl="curl --user-agent 'noleak'"
 alias dateup="doas /usr/sbin/rdate -ncv pool.ntp.org"
 alias nmap="doas /usr/local/bin/nmap"
 alias tsharkwifi="doas /usr/local/bin/tshark -i iwm0"
