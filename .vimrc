@@ -90,6 +90,7 @@ autocmd FileType c,cpp setlocal foldmethod=syntax foldnestmax=5
 
 " editor settings
 set viminfo=
+set viminfofile=/tmp/efek/viminfo
 set history=0
 set nocompatible
 "set nofoldenable                     " disable folding
