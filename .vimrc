@@ -1,4 +1,4 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin('/home/efek/.vim/plugged')
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'garbas/vim-snipmate'
@@ -25,12 +25,10 @@ Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
 call plug#end()
 
 " ALE yapılandırması
-let g:ale_linters = {   'c': ['gcc', 'clang'],}
+let g:ale_linters = { 'c': ['egcc', 'clang'],}
 
 " Auto-pairs ayarları
 let g:auto_pairs = 1
-
-let g:coc_global_extensions = ['coc-clangd']
 
 "uninstall command :CocUninstall coc-tabnine
 let g:coc_source_disable = {'tabnine': 1}
@@ -94,21 +92,21 @@ autocmd FileType c,cpp setlocal foldmethod=syntax foldnestmax=5
 set viminfo=
 set history=0
 set nocompatible
-"set nofoldenable                                                  " disable folding"
-set confirm                                                       " prompt when existing from an unsaved file
-set backspace=indent,eol,start                                    " More powerful backspacing
-set t_Co=256                                                      " Explicitly tell vim that the terminal has 256 colors "
-set mouse=a                                                       " use mouse in all modes
-set report=0                                                      " always report number of lines changed                "
-set nowrap                                                        " dont wrap lines
-set scrolloff=5                                                   " 5 lines above/below cursor when scrolling
-set number                                                        " show line numbers
-set showmatch                                                     " show matching bracket (briefly jump)
-set showcmd                                                       " show typed command in status bar
-set title                                                         " show file in titlebar
-set laststatus=2                                                  " use 2 lines for the status bar
-set matchtime=2                                                   " show matching bracket for 0.2 seconds
-set matchpairs+=<:>                                               " specially for html
+"set nofoldenable                     " disable folding
+set confirm                           " prompt when existing from an unsaved file
+set backspace=indent,eol,start        " More powerful backspacing
+set t_Co=256                          " Explicitly tell vim that the terminal has 256 colors "
+set mouse=a                           " use mouse in all modes
+set report=0                          " always report number of lines changed                "
+set nowrap                            " dont wrap lines
+set scrolloff=5                       " 5 lines above/below cursor when scrolling
+set number                            " show line numbers
+set showmatch                         " show matching bracket (briefly jump)
+set showcmd                           " show typed command in status bar
+set title                             " show file in titlebar
+set laststatus=2                      " use 2 lines for the status bar
+set matchtime=2                       " show matching bracket for 0.2 seconds
+set matchpairs+=<:>                   " specially for html
 "set relativenumber
 
 " Default Indentation
