@@ -239,13 +239,13 @@ autocmd BufNewFile *.sh exec ":call SetTitle()"
 func SetTitle()
     if &filetype == 'sh'
         call setline(1, "#!/bin/sh")
-        call append(line(".")+0, "#########################################################################")
+        call append(line(".")+0, "###############################################################################")
         call append(line(".")+1, "#   Author: efek0349, (https://github.com/efek0349)")
-        call append(line(".")+2, "#   E-mail: kndmrefe[at]gmail[dot]com")
-        call append(line(".")+3, "#  Created: ".strftime("%F  T %H:%M"))
+        call append(line(".")+2, "#   E-mail: <kndmrefe@gmail.com>		GPG:0xC9E85BA0E9E1BACE")
+        call append(line(".")+3, "#  Created: ".strftime("%m/%d/%Y  %H:%M"))
         call append(line(".")+4, "# Revision: none")
         call append(line(".")+5, "# FileName: ".expand("%"))
-        call append(line(".")+6, "#########################################################################")
+        call append(line(".")+6, "###############################################################################")
         call append(line(".")+7, "")
     endif
 endfunc

@@ -5,12 +5,15 @@ command echo ""
 command /home/efek/bin/girl
 
 set -Ua fish_user_paths $HOME/bin $HOME/go/bin
+set -gx PATH /home/efek/.virtualenv/bin $PATH
 set -g fish_prompt_pwd_dir_length 10
 set -x GPG_TTY tty
 #set -x  ALL_PROXY socks5://127.0.0.1:10000
 set -x GOBIN $HOME/go/bin
 set -x GREP_COLOR  '30;43'
 set -x GREP_COLORS 'mt=30;43'
+set -x VIRTUALENVWRAPPER_PYTHON "/home/efek/.virtualenvs/bin/python3"
+set -x WORKON_HOME "/home/$LOGNAME/.virtualenvs"
 
 alias hints="less ~/.config/fish/config.fish"
 alias hcat='highlight -O ansi --force'

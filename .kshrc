@@ -1,7 +1,7 @@
 # $OpenBSD: ksh.kshrc,v 1.32 2018/05/16 14:01:41 mpf Exp $
 #
 # sh/ksh initialization
-PATH=/home/$LOGNAME/bin:/home/$LOGNAME/.local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin:/usr/games:.
+PATH=/home/$LOGNAME/go/bin:/home/$LOGNAME/bin:/home/$LOGNAME/.local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin:/usr/games:.
 
 if [[ $(id -u) == 1000 ]];then
   if [[ -x $(command -v ruby) ]];then
@@ -35,6 +35,8 @@ fi
 #################################################################
 export PATH HOME TERM
 #export TERM="pccon"
+export GOBIN=$HOME/go/bin
+#export ALL_PROXY=socks5://127.0.0.1:10000
 #export HISTFILE=$TMPDIR/.ksh_history
 export HISTFILE="$HOME/.ksh_history"
 export HISTSIZE=50000
@@ -49,8 +51,8 @@ export GOPATH="/home/$LOGNAME/code/gopath"
 #export PYTHONSTARTUP="/home/$LOGNAME/.pythonrc"
 #export PYTHONDOCS="/usr/local/share/doc/python2.7/html"
 export PROJECT_HOME="/home/$LOGNAME/code/python"
-export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3.6"
-export PKG_CACHE="/var/db/Packages/snapshots/`arch -s`/" #  mkdir -p $PKG_CACHE
+export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3"
+#export PKG_CACHE="/var/db/Packages/snapshots/`arch -s`/" #  mkdir -p $PKG_CACHE
 # Home directory for virtualenvwrapper
 export WORKON_HOME="/home/$LOGNAME/.virtualenvs"
 # color man-pages persistently
@@ -157,6 +159,7 @@ function fzf-histo {
     eval "$RES"
 }
 
+. /home/efek/.virtualenvs/bin/activate 
 bind -m ^R=fzf-histo^J
 
 case $(id -u) in
