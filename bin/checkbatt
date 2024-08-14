@@ -1,0 +1,10 @@
+#!/bin/ksh
+export DISPLAY=:0.0
+
+[[ `cat /sys/class/power_supply/AC/online` = 1 ]] && exit
+
+battlvl="$(cat /sys/class/power_supply/BAT0/capacity)"
+
+[[ $battlvl -lt 18 ]] && echo -ne '\007' && zenity --info --text="Critical level $(acpi -b|awk -F\: '{print $3}') minutes" && exit 
+[[ $battlvl -eq 22 ]] && zenity --info --text="Battery level $(acpi -b|awk -F\: '{print $3}') minutes"
+exit 0
