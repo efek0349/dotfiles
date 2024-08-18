@@ -1,10 +1,21 @@
-#!/bin/ksh
+#!/bin/bash
+
 export DISPLAY=:0.0
 
-[[ `cat /sys/class/power_supply/AC/online` = 1 ]] && exit
+if [ "$(cat /sys/class/power_supply/AC/online)" = "1" ]; then
+    exit 0
+fi
 
-battlvl="$(cat /sys/class/power_supply/BAT0/capacity)"
+battlvl=$(cat /sys/class/power_supply/BAT0/capacity)
 
-[[ $battlvl -lt 18 ]] && echo -ne '\007' && zenity --info --text="Critical level $(acpi -b|awk -F\: '{print $3}') minutes" && exit 
-[[ $battlvl -eq 22 ]] && zenity --info --text="Battery level $(acpi -b|awk -F\: '{print $3}') minutes"
+if [ "$battlvl" -lt 70 ]; then
+    echo -ne '\007' # Beep
+    zenity --info --text="Critical level $(acpi -b|awk -F':' '{print $3}') remaining"
+    exit 0
+fi
+
+if [ "$battlvl" -eq 75 ]; then
+    zenity --info --text="Battery level $(acpi -b|awk -F':' '{print $3}') remaining"
+fi
+
 exit 0
