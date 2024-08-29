@@ -1,3 +1,4 @@
+ImageMagick--
 Imath--
 OpenEXR--
 aalib--
@@ -53,6 +54,7 @@ ddrescue--
 desktop-file-utils--
 devhelp--
 dfc--
+djvulibre--
 dmenu--
 dnscrypt-proxy--
 dos2unix--
@@ -166,6 +168,7 @@ iso-codes--
 jansson--
 jasper--
 jbig2dec--
+jbigkit--
 jefferson--
 john-jumbo--
 jpeg--
