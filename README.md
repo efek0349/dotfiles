@@ -39,12 +39,6 @@ $ crontab -l
 $ crontab -r
 ```
 
-### A crontab file is written as follows:
-
-```
-*  *  *  *  *  /home/efek/bin/checkbatt
-```
-
 ### This is a Crontab entry that will run every minute:
 
 ```
@@ -125,3 +119,44 @@ Set the proxy settings for the system-wide configuration:
 ```
 $ export all_proxy=socks5://localhost:10000
 ```
+
+# ramdisk 
+
+```
+# mkdir /ramdisk
+# chmod 1777 /ramdisk
+```
+
+### add /etc/fstab
+
+`swap /ramdisk mfs rw,nodev,nosuid,-s=300m 0 0`
+
+# unbound and dnscrypt
+
+```
+# rcctl enable unbound dnscrypt_proxy
+# rcctl set unbound flags "-c /var/unbound/etc/myunbound.conf"
+# rcctl start unbound dnscrypt_proxy
+```
+
+# Samba
+
+### `exec dbus-launch --exit-with-session --sh-syntax cwm`
+
+```
+# pkg_add -Dsnap gvfs gvfs-smb dbus avahi
+# rcctl enable multicast messagebus avahi_daemon
+```
+
+# vmm kali
+
+```
+$ vmctl create -s 60GB kali.qcow2
+# vmcrl start -c -m 5G -L -i 1 -r kali-linux.iso -d kali.qcow2 kali
+```
+
+## tab
+
+`console=ttyS0,9600n8`
+
+### kali install ssh-server
