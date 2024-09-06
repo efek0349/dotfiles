@@ -1,6 +1,14 @@
 #!/bin/bash
 
 export DISPLAY=:0.0
+export XDG_RUNTIME_DIR="/run/user/1000"
+
+output=$(acpi -b)
+time=$(echo $output | grep -oP '\d{2}:\d{2}:\d{2}')
+hours=$(echo $time | cut -d':' -f1)
+minutes=$(echo $time | cut -d':' -f2)
+seconds=$(echo $time | cut -d':' -f3)
+total_minutes=$((hours * 60 + minutes))
 
 if [ "$(cat /sys/class/power_supply/AC/online)" = "1" ]; then
     exit 0
@@ -8,14 +16,15 @@ fi
 
 battlvl=$(cat /sys/class/power_supply/BAT0/capacity)
 
-if [ "$battlvl" -lt 70 ]; then
-    echo -ne '\007' # Beep
-    zenity --info --text="Critical level $(acpi -b|awk -F':' '{print $3}') remaining"
+if [ "$battlvl" -lt 25 ]; then
+    /bin/play -q ~/.mutt/beep.wav
+    #echo -ne "\007" >/dev/tty # Beep
+    zenity --info --text="Critical level $total_minutes remaining"
     exit 0
 fi
 
-if [ "$battlvl" -eq 75 ]; then
-    zenity --info --text="Battery level $(acpi -b|awk -F':' '{print $3}') remaining"
+if [ "$battlvl" -eq 30 ]; then
+    zenity --info --text="Battery level $total_minutes remaining"
 fi
 
 exit 0
