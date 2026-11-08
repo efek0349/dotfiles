@@ -1,0 +1,6 @@
+# /etc/hostname.trunk0
+lladdr random
+trunkproto failover
+trunkport alc0
+trunkport mtw0
+inet autoconf
