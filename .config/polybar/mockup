@@ -1,55 +1,91 @@
 # pkg_add polybar
 # mkdir -p ~/.config/polybar
 # vi ~/.config/polybar/mockup
-[colors] 
+[colors]
 bg = #1D1F21
-fg = #FFFFFF 
-green = #50FA7B 
+fg = #FFFFFF
+green = #50FA7B
+red = #FF5555
+gray = #777777
 
-[settings] 
-screenchange-reload = true 
+[settings]
+screenchange-reload = true
 
-[bar/top] 
-width = 450 
-height = 15 
-offset-x = 01 
-offset-y = 01 
+[bar/top]
+width = 350
+height = 20
+offset-x = 1
+offset-y = -2
 
-fixed-center = false 
+fixed-center = false
 
-background = ${colors.bg} 
-foreground = ${colors.fg} 
+background = ${colors.bg}
+foreground = ${colors.fg}
 
-padding-left = 0 
-padding-right = 2 
+padding-left = 1
+padding-right = 2
 
-module-margin-left = 1 
-module-margin-right = 1 
+module-margin-left = 1
+module-margin-right = 1
 
-font-0 = Iosevka NF:style=Medium:size=12;3
+font-0 = Iosevka:style=Medium:size=12;3
+font-1 = Terminess Nerd Font Mono:style=Regular:size=12;3
 
-modules-left = xworkspaces
+modules-left = xworkspaces search
 
-[module/xworkspaces] 
-type = internal/xworkspaces 
-icon-0 = nogroup; 
-icon-1 = one;1 
-icon-2 = two;2 
-icon-3 = three;3 
-icon-4 = four;4 
-icon-5 = five;5 
-icon-6 = six;6 
-icon-7 = seven;7 
-icon-8 = eight;8 
-icon-9 = nine;9 
+cursor-click = pointer
 
-label-active = %icon% 
-label-active-foreground = ${colors.bg} 
+[module/xworkspaces]
+type = internal/xworkspaces
+
+pin-workspaces = false
+group-by-monitor = false
+enable-click = true
+enable-scroll = true
+
+; Workspace icons
+icon-0 = one;󰆍
+icon-1 = two;󰈹
+icon-2 = three;󰉋
+icon-3 = four;󰓓
+icon-4 = five;󰂺
+icon-5 = six;󰭹
+icon-6 = seven;󰎆
+icon-7 = eight;󰞁
+icon-8 = nine;󰖟
+
+; Default icon for an unmapped desktop
+icon-default = 󰖟
+
+format = <label-state>
+
+; Active workspace
+label-active = %icon%
+label-active-foreground = ${colors.bg}
 label-active-background = ${colors.green}
-label-active-padding = 2 
+label-active-padding = 1
 
-label-urgent = %icon% 
-label-urgent-padding = 2 
+; Occupied workspace
+label-occupied = %icon%
+label-occupied-foreground = ${colors.fg}
+label-occupied-padding = 1
 
-label-empty = %icon% 
-label-empty-padding = 2 
+; Urgent workspace
+label-urgent = %icon%
+label-urgent-foreground = ${colors.red}
+label-urgent-padding = 1
+
+; Empty workspace
+label-empty = %icon%
+label-empty-foreground = ${colors.gray}
+label-empty-padding = 1
+
+[module/search]
+type = custom/text
+
+content = 󰍉
+content-foreground = ${colors.green}
+content-padding = 2
+
+click-left = dmenu_run
+
