@@ -16,7 +16,7 @@ enable-ipc = true
 width = 350
 height = 20
 offset-x = 1
-offset-y = -2
+offset-y = -3
 
 fixed-center = false
 
@@ -29,12 +29,21 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = Iosevka:style=Medium:size=12;3
-font-1 = Terminess Nerd Font Mono:style=Regular:size=12;3
+font-0 = Iosevka:style=Medium:size=9;2
+font-1 = Terminess Nerd Font Mono:style=Regular:size=9;2
 
-modules-left = xworkspaces search
+modules-left = xworkspaces search xwindow
 
 cursor-click = pointer
+
+[module/xwindow]
+type = internal/xwindow
+
+format = <label>
+label = %title:0:40:...%
+label-foreground = ${colors.fg}
+label-padding = 1
+label-empty =
 
 [module/xworkspaces]
 type = internal/xworkspaces
