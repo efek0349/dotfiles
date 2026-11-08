@@ -11,7 +11,6 @@ gray = #777777
 [settings]
 screenchange-reload = true
 enable-ipc = true
-screenchange-reload = true
 
 [bar/top]
 width = 350
