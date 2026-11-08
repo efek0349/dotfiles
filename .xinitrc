@@ -68,14 +68,21 @@ sh $HOME/.fehbg
 
 #xidle -program '/usr/X11R6/bin/xlock' -timeout 60 &
 #xconsole -geometry -891+730 &
-polybar -c ~/.config/polybar/mockup &
+(
+    while ! xprop -root _NET_ACTIVE_WINDOW 2>/dev/null | grep -q 'window id'; do
+        sleep 1
+    done
+
+    sleep 2
+    polybar -c ~/.config/polybar/mockup
+) &
 
 ## DBus
 #if [ -x /usr/local/bin/dbus-launch -a -z "${DBUS_SESSION_BUS_ADDRESS}" ]; then
 #        eval `dbus-launch --sh-syntax --exit-with-x11`
 #fi
 
-/usr/bin/doas /usr/sbin/rcctl restart smtpd &
+#/usr/bin/doas /usr/sbin/rcctl restart smtpd &
 #/usr/local/bin/scim -d &
-/home/efek/bin/www-ramdisk &
+#/home/efek/bin/www-ramdisk &
 exec dbus-launch --exit-with-session --sh-syntax cwm
