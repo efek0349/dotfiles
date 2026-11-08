@@ -10,6 +10,8 @@ gray = #777777
 
 [settings]
 screenchange-reload = true
+enable-ipc = true
+screenchange-reload = true
 
 [bar/top]
 width = 350
@@ -44,38 +46,34 @@ enable-click = true
 enable-scroll = true
 
 ; Workspace icons
-icon-0 = one;󰆍
-icon-1 = two;󰈹
-icon-2 = three;󰉋
-icon-3 = four;󰓓
-icon-4 = five;󰂺
-icon-5 = six;󰭹
-icon-6 = seven;󰎆
-icon-7 = eight;󰞁
-icon-8 = nine;󰖟
+icon-0 = nogroup;
+icon-1 = one;󰆍
+icon-2 = two;󰈹
+icon-3 = three;󰉋
+icon-4 = four;󰓓
+icon-5 = five;󰂺
+icon-6 = six;󰭹
+icon-7 = seven;󰎆
+icon-8 = eight;󰞁
+icon-9 = nine;󰖟
 
-; Default icon for an unmapped desktop
 icon-default = 󰖟
 
 format = <label-state>
 
-; Active workspace
 label-active = %icon%
 label-active-foreground = ${colors.bg}
 label-active-background = ${colors.green}
 label-active-padding = 1
 
-; Occupied workspace
 label-occupied = %icon%
 label-occupied-foreground = ${colors.fg}
 label-occupied-padding = 1
 
-; Urgent workspace
 label-urgent = %icon%
 label-urgent-foreground = ${colors.red}
 label-urgent-padding = 1
 
-; Empty workspace
 label-empty = %icon%
 label-empty-foreground = ${colors.gray}
 label-empty-padding = 1
